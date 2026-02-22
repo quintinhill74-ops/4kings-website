@@ -74,6 +74,10 @@
         }
         @media (max-width: 860px){
             .top-banner{height:170px;}
+@media (max-width: 720px){
+  #bg-layer{background-image:url('4kings_bg_1280.webp');}
+}
+
             .top-banner img{object-position:center 35%;}
         }
 
@@ -893,6 +897,116 @@ input, select, textarea{
   text-shadow: 0 2px 18px rgba(0,0,0,.55);
 }
 
+
+/* Mobile tap fix: background layers must never steal clicks */
+#bg-layer, #bg-overlay { pointer-events: none !important; }
+
+
+/* Performance helpers */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  #bubble-layer{display:none !important}
+}
+@media (max-width: 980px){
+  main{padding-bottom:84px;} /* space for mobile CTA bar */
+}
+section{content-visibility:auto; contain-intrinsic-size: 800px;}
+
+/* Before/After slider */
+.ba-card{padding:14px;}
+.ba{
+  position:relative;
+  border-radius: var(--radius2);
+  overflow:hidden;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  height: 340px;
+}
+.ba img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+.ba .before{
+  filter: saturate(.65) contrast(.9) brightness(.72);
+}
+.ba .afterWrap{
+  position:absolute; inset:0;
+  width:50%;
+  overflow:hidden;
+}
+.ba .after{
+  filter:none;
+}
+.ba input[type="range"]{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  opacity:0;
+  cursor: ew-resize;
+}
+.ba .handle{
+  position:absolute;
+  top:0; bottom:0;
+  left:50%;
+  width:2px;
+  background: rgba(255,255,255,.65);
+  box-shadow: 0 0 0 6px rgba(34,200,255,.12), 0 0 30px rgba(34,200,255,.18);
+}
+.ba .knob{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:44px; height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.28);
+  background: rgba(8, 18, 28, .80);
+  display:grid; place-items:center;
+  font-weight:900;
+}
+.ba-cap{margin-top:10px;color:var(--muted);font-size:12px;}
+@media (max-width: 980px){
+  .ba{height:260px;}
+}
+
+/* Sticky mobile CTA bar */
+.mobile-cta{
+  position: fixed;
+  left: 12px; right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 9998;
+  display:none;
+  gap:10px;
+  padding:10px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(8, 18, 28, .78);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0,0,0,.42);
+}
+.mobile-cta a{
+  flex:1;
+  text-align:center;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  font-weight:800;
+  font-size:13px;
+}
+.mobile-cta a.primary{
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(34,200,255,1) 0%, rgba(46,242,196,1) 60%, rgba(184,255,74,.95) 120%);
+  color:#05202a;
+}
+@media (max-width: 980px){
+  .mobile-cta{display:flex;}
+}
+
+@media (max-width: 980px){
+  #before-after .grid-3{grid-template-columns: 1fr !important;}
+}
+
 </style>
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
@@ -902,9 +1016,11 @@ input, select, textarea{
                           "@type":"LocalBusiness",
                           "name":"4 Kings Cleaning Services LLC",
                           "description":"Residential and commercial cleaning services including deep clean, move-in/out, standard recurring, and office cleaning.",
-                          "areaServed":"Norfolk, VA — Hampton Roads — 7 Cities",
-                          "telephone":"+1-(757) 300-9400",
-                          "url":"4KingsCleaningservices24@gmail.com"
+                          "areaServed":"Norfolk, VA; Virginia Beach, VA; Chesapeake, VA; Portsmouth, VA; Suffolk, VA; Hampton, VA; Newport News, VA (Hampton Roads)",
+                          "telephone":"+1-(555) 555-5555",
+                          
+                          "email":"4KingsCleaningservices24@gmail.com",
+"url":"https://www.4kingscleaningservices.com"
                         }
     </script>
 </head>
@@ -939,6 +1055,7 @@ input, select, textarea{
                 <a href="#process">How It Works</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#faq">FAQ</a>
+                <a class="btn small" id="bookTop" href="#" target="_blank" rel="noopener">Book Now</a>
                 <a class="btn small" href="#quote">Get a Quote</a>
                 <a class="btn small primary" id="callTop" href="tel:5555555555">Call Now</a>
             </nav>
@@ -960,6 +1077,7 @@ input, select, textarea{
                     <div class="cta-row">
                         <a class="btn primary" href="#quote">Get a Free Quote</a>
                         <a class="btn" href="#services">Explore Services</a>
+                        <a class="btn" id="bookHero" href="#" target="_blank" rel="noopener">Book Online</a>
                         <button class="btn" id="copyTextBtn" type="button">Text Us Info</button>
                     </div>
 
@@ -987,7 +1105,8 @@ input, select, textarea{
                         Fill this out and we’ll follow up ASAP. 
                     </p>
 
-                    <form id="quoteForm" class="form-grid" autocomplete="on">
+                    <form id="quoteForm" class="form-grid" autocomplete="on" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                        <input type="hidden" name="_subject" value="Quote Request — 4 Kings Cleaning Services LLC">
                         <div>
                             <label for="name">Full Name</label>
                             <input id="name" name="name" placeholder="Your name" required />
@@ -1108,7 +1227,42 @@ input, select, textarea{
                     </div>
                 </div>
             </div>
-        </section>
+        <!-- SERVICE AREA (SEO) -->
+<section id="service-area">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Service Area</h3>
+                <p>Serving Norfolk and the greater Hampton Roads area. If you’re nearby, ask — we’ll confirm availability.</p>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="service">
+                <div class="icon" aria-hidden="true">📍</div>
+                <h4>Core Areas</h4>
+                <p>Norfolk, Virginia Beach, Chesapeake, Portsmouth, Suffolk, Hampton, Newport News.</p>
+                <div style="margin-top:10px" class="tag">Hampton Roads • 7 Cities</div>
+            </div>
+
+            <div class="service">
+                <div class="icon" aria-hidden="true">🏘️</div>
+                <h4>Homes & Apartments</h4>
+                <p>Standard recurring, deep clean resets, move-in/out, and one-time cleans.</p>
+                <div style="margin-top:10px" class="tag">Residential</div>
+            </div>
+
+            <div class="service">
+                <div class="icon" aria-hidden="true">🏢</div>
+                <h4>Offices & Commercial</h4>
+                <p>After-hours options, common areas, suites, storefronts, and turn-ready cleans.</p>
+                <div style="margin-top:10px" class="tag">Commercial</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</section>
 
         <section id="trust">
             <div class="wrap">
@@ -1117,7 +1271,8 @@ input, select, textarea{
                         <h3>Trusted, Professional, Consistent</h3>
                         <p>We don’t “wing it.” We run a repeatable process and deliver a clean you can verify.</p>
                     </div>
-                    <a class="btn small" href="#quote">Get a Quote</a>
+                    <a class="btn small" id="bookTop" href="#" target="_blank" rel="noopener">Book Now</a>
+                <a class="btn small" href="#quote">Get a Quote</a>
                 </div>
 
                 <div class="grid-3">
@@ -1144,10 +1299,68 @@ input, select, textarea{
                 </div>
 
                 <p class="fineprint" style="margin-top:12px">
-                    
+                    Want this to hit harder? Add: “Background-checked team” or “Eco-friendly products available” only if true.
                 </p>
             </div>
-        </section>
+        </section><!-- BEFORE / AFTER -->
+<section id="before-after">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Before &amp; After</h3>
+                <p>Drag the slider to see real results. On mobile, drag left/right.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="card ba-card">
+                <div class="tag">Refrigerator</div>
+                <div class="ba" data-ba>
+                    <picture>
+                        <source media="(max-width: 720px)" srcset="ba_fridge_before_960.webp" type="image/webp">
+                        <img class="before" src="ba_fridge_before.webp" alt="Refrigerator before cleaning" loading="lazy" decoding="async">
+                    </picture>
+
+                    <div class="afterWrap" data-after>
+                        <picture>
+                            <source media="(max-width: 720px)" srcset="ba_fridge_after_960.webp" type="image/webp">
+                            <img class="after" src="ba_fridge_after.webp" alt="Refrigerator after cleaning" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+
+                    <div class="handle" data-handle aria-hidden="true"></div>
+                    <div class="knob" aria-hidden="true">↔</div>
+                    <input type="range" min="0" max="100" value="50" aria-label="Refrigerator before after slider" data-range>
+                </div>
+                <div class="ba-cap">Fridge interior — sanitized and reset.</div>
+            </div>
+
+            <div class="card ba-card">
+                <div class="tag">Oven</div>
+                <div class="ba" data-ba>
+                    <picture>
+                        <source media="(max-width: 720px)" srcset="ba_oven_before_960.webp" type="image/webp">
+                        <img class="before" src="ba_oven_before.webp" alt="Oven before cleaning" loading="lazy" decoding="async">
+                    </picture>
+
+                    <div class="afterWrap" data-after>
+                        <picture>
+                            <source media="(max-width: 720px)" srcset="ba_oven_after_960.webp" type="image/webp">
+                            <img class="after" src="ba_oven_after.webp" alt="Oven after cleaning" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+
+                    <div class="handle" data-handle aria-hidden="true"></div>
+                    <div class="knob" aria-hidden="true">↔</div>
+                    <input type="range" min="0" max="100" value="50" aria-label="Oven before after slider" data-range>
+                </div>
+                <div class="ba-cap">Oven interior — degreased and detailed.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
         <!-- PRICING -->
         <section id="pricing">
@@ -1268,8 +1481,9 @@ input, select, textarea{
                 <div class="section-title">
                     <div>
                         <h3>Reviews</h3>
-                        <p></p>
+                        <p>A few words from customers. Want to leave one? Tap “Leave a review.”</p>
                     </div>
+                <a class="btn small" id="reviewBtn" href="#" target="_blank" rel="noopener">Leave a review</a>
                 </div>
 
                 <div class="grid-3">
@@ -1309,13 +1523,25 @@ input, select, textarea{
             </div>
         </section>
 
+        <section id="gallery">
+  <div class="wrap">
+    <div class="section-title">
+      <div>
+        <h3>Before &amp; After Gallery</h3>
+        <p>Gallery images have been removed on this version of the page.</p>
+      </div>
+      <a class="btn small" href="#quote">Book a Clean</a>
+    </div>
+  </div>
+</section>
+
 <!-- Lightbox Modal -->
 <section id="faq">
             <div class="wrap">
                 <div class="section-title">
                     <div>
                         <h3>FAQ</h3>
-                        <p></p>
+                        <p>Quick answers. Less back-and-forth. More cleaning.</p>
                     </div>
                 </div>
 
@@ -1392,22 +1618,28 @@ input, select, textarea{
             <div class="foot">
                 <h5>Contact</h5>
                 <!-- EDIT THESE -->
-                <p><a id="phoneLink" href="tel:5555555555">📞 (757) 300-9400</a></p>
-                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ 4KingsCleaningservices24@gmail.com</a></p>
+                <p><a id="phoneLink" href="tel:5555555555">📞 (000) 000-0000</a></p>
+                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ quotes@4kingscleaning.com</a></p>
                 <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
             </div>
 
-            
             <div class="foot">
-                <h5>Legal</h5>
-                <p><a href="privacy.html">Privacy Policy</a></p>
-                <p><a href="terms.html">Terms of Use</a></p>
-                <p><a href="privacy-rights.html">Your Privacy Rights</a></p>
-                <p><a href="accessibility.html">Accessibility</a></p>
+                <h5>Service Area</h5>
+                <p>Serving: <span id="serviceArea">Your City • Nearby Areas</span></p>
+                <p class="tiny" style="margin-top:10px">
+                    Licensed/insured info can go here if applicable.
+                </p>
             </div>
-
         </div>
     </footer>
+
+<!-- Sticky mobile CTA -->
+<div class="mobile-cta" aria-label="Quick actions">
+    <a class="primary" href="#quote">Get Quote</a>
+    <a id="bookCta" href="#" target="_blank" rel="noopener">Book</a>
+    <a href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">Email</a>
+    <a id="callCta" href="tel:5555555555">Call</a>
+</div>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
         <span>✅</span><span id="toastMsg">Copied</span>
@@ -1417,18 +1649,23 @@ input, select, textarea{
     // ====== EDIT THESE BUSINESS DETAILS ======
         const BUSINESS = {
             name: "4 Kings Cleaning Services LLC",
-            phoneDisplay: "(757) 300-9400",
-            phoneTel: "+17573009400",
+            phoneDisplay: "(555) 555-5555",
+            phoneTel: "+15555555555",
             email: "4KingsCleaningservices24@gmail.com",
             serviceArea: "Norfolk, VA • Hampton Roads • 7 Cities",
             trustLine: "Licensed & Insured"
+        ,
+            bookingUrl: "https://calendly.com/YOUR-BOOKING-LINK",
+            reviewUrl: "https://g.page/r/YOUR-GOOGLE-REVIEW-LINK/review"
         };
 
     // ====== UI WIRING ======
     const yearEl = document.getElementById("year");
     yearEl.textContent = new Date().getFullYear();
 
-    document.getElementById("serviceArea").textContent = BUSINESS.serviceArea;
+    const serviceAreaEl = document.getElementById("serviceArea");
+    if (serviceAreaEl) serviceAreaEl.textContent = BUSINESS.serviceArea;
+
 
     const phoneLink = document.getElementById("phoneLink");
     phoneLink.textContent = "📞 " + BUSINESS.phoneDisplay;
@@ -1441,12 +1678,70 @@ input, select, textarea{
     const callTop = document.getElementById("callTop");
     callTop.href = "tel:" + BUSINESS.phoneTel;
 
-    // Mobile menu
-    const menuBtn = document.getElementById("menuBtn");
-    const nav = document.querySelector(".nav");
-    menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+    
 
-    // Toast helper
+// Booking + review links (set BUSINESS.bookingUrl / BUSINESS.reviewUrl)
+const bookTop = document.getElementById("bookTop");
+const bookHero = document.getElementById("bookHero");
+const bookCta = document.getElementById("bookCta");
+const reviewBtn = document.getElementById("reviewBtn");
+
+const bookingUrl = (BUSINESS.bookingUrl || "").trim();
+const reviewUrl = (BUSINESS.reviewUrl || "").trim();
+
+function wireLink(el, url, label){
+  if (!el) return;
+  if (!url || url.includes("YOUR-")){
+    el.href = "#quote";
+    el.addEventListener("click", (e)=>{ e.preventDefault(); document.getElementById("quote")?.scrollIntoView({behavior:"smooth"}); showToast(`Set your ${label} link in the BUSINESS object`); }, {passive:false});
+    return;
+  }
+  el.href = url;
+  el.target = "_blank";
+  el.rel = "noopener";
+}
+
+wireLink(bookTop, bookingUrl, "booking");
+wireLink(bookHero, bookingUrl, "booking");
+wireLink(bookCta, bookingUrl, "booking");
+
+if (reviewBtn){
+  if (!reviewUrl || reviewUrl.includes("YOUR-")){
+    reviewBtn.href = "#reviews";
+    reviewBtn.addEventListener("click", (e)=>{ e.preventDefault(); document.getElementById("reviews")?.scrollIntoView({behavior:"smooth"}); showToast("Add your Google review link in the BUSINESS object"); }, {passive:false});
+  } else {
+    reviewBtn.href = reviewUrl;
+    reviewBtn.target = "_blank";
+    reviewBtn.rel = "noopener";
+  }
+}
+
+// Mobile CTA Call uses BUSINESS phone (kept fake for now)
+const callCta = document.getElementById("callCta");
+if (callCta) callCta.href = "tel:" + BUSINESS.phoneTel;
+
+// Mobile menu (iPhone-safe)
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector(".nav");
+
+function toggleMenu(e){
+  if (e && e.preventDefault) e.preventDefault();
+  if (!nav) return;
+  nav.classList.toggle("open");
+}
+
+if (menuBtn && nav){
+  menuBtn.addEventListener("click", toggleMenu, { passive: false });
+  menuBtn.addEventListener("touchstart", toggleMenu, { passive: false });
+
+  // Close menu after tapping a link
+  document.querySelectorAll(".nav .links a").forEach(a => {
+    a.addEventListener("click", () => nav.classList.remove("open"));
+    a.addEventListener("touchstart", () => nav.classList.remove("open"), { passive: true });
+  });
+}
+
+// Toast helper
     const toast = document.getElementById("toast");
     const toastMsg = document.getElementById("toastMsg");
     let toastTimer = null;
@@ -1500,7 +1795,18 @@ input, select, textarea{
                 if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
             });
         }
-// "Text Us Info" copies prefilled SMS text (you can also open SMS on mobile)
+});
+        });
+
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
+        });
+
+    // "Text Us Info" copies prefilled SMS text (you can also open SMS on mobile)
     const copyTextBtn = document.getElementById("copyTextBtn");
     copyTextBtn.addEventListener("click", async () => {
       const txt = `Hi ${BUSINESS.name}! I’d like a quote. Service: ____  Size: ____  Date: ____  Notes: ____`;
@@ -1542,14 +1848,40 @@ ${data.get("notes") || "N/A"}
       window.location.href = buildEmailLink(data);
     });
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      window.location.href = buildEmailLink(data);
-      showToast("Opening your email app…");
-      form.reset();
+    async function submitQuote(data){
+  const endpoint = (form.getAttribute("action") || "").trim();
+  // If you haven't set up Formspree yet, we fall back to email.
+  if (!endpoint || endpoint.includes("YOUR_FORM_ID")) return false;
+  try{
+    const res = await fetch(endpoint, {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
     });
-    </script>
+    return res.ok;
+  }catch(err){
+    return false;
+  }
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  const ok = await submitQuote(data);
+  if (ok){
+    showToast("Quote sent ✅");
+    form.reset();
+    return;
+  }
+
+  // Fallback
+  window.location.href = buildEmailLink(data);
+  showToast("Opening your email app…");
+  form.reset();
+});
+
+</script>
 
 <script>
 (() => {
@@ -1584,6 +1916,31 @@ ${data.get("notes") || "N/A"}
 
     layer.appendChild(b);
   }
+})();
+</script>
+
+<script>
+/* Before/After slider wiring */
+(() => {
+  document.querySelectorAll('[data-ba]').forEach((wrap) => {
+    const range = wrap.querySelector('[data-range]');
+    const after = wrap.querySelector('[data-after]');
+    const handle = wrap.querySelector('[data-handle]');
+    const knob = wrap.querySelector('.knob');
+    if (!range || !after || !handle) return;
+
+    const set = (v) => {
+      const val = Math.max(0, Math.min(100, Number(v)));
+      after.style.width = val + '%';
+      handle.style.left = val + '%';
+      if (knob) knob.style.left = val + '%';
+    };
+
+    const on = () => set(range.value);
+    range.addEventListener('input', on, { passive: true });
+    range.addEventListener('change', on, { passive: true });
+    on();
+  });
 })();
 </script>
 
