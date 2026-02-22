@@ -92,12 +92,13 @@
 
         .logo{
             width:75px;height:75px;border-radius:16px;
-            object-fit:cover;
-            display:block;
-            background:transparent;
-            border:1px solid rgba(255,255,255,.22);
-            box-shadow:0 10px 30px rgba(0,0,0,.35);
-            flex:0 0 auto;
+            background:
+              radial-gradient(18px 18px at 28% 28%, rgba(255,255,255,.55), transparent 60%),
+              radial-gradient(18px 18px at 70% 62%, rgba(255,255,255,.28), transparent 62%),
+              linear-gradient(135deg, rgba(34,200,255,1) 0%, rgba(46,242,196,1) 60%, rgba(184,255,74,.95) 120%);
+            box-shadow: 0 18px 45px rgba(34,200,255,.20);
+            display:grid;place-items:center;
+            position:relative;
         }
         .logo:after{
             content:"👑";
@@ -820,25 +821,7 @@
   .brand .brandtext span{display:none}
 }
 
-
-        /* Top banner */
-        .top-banner{
-            width:100%;
-            border-bottom:1px solid var(--line);
-            background:rgba(0,0,0,.15);
-        }
-        .top-banner img{
-            width:100%;
-            height:auto;
-            display:block;
-            max-height:320px;
-            object-fit:cover;
-        }
-        @media (min-width: 900px){
-            .top-banner img{ max-height:420px; }
-        }
-
-    </style>
+</style>
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
     <script type="application/ld+json">
@@ -852,21 +835,79 @@
                           "url":"https://yourdomain.com"
                         }
     </script>
+
+<style id="zuzu-bg-bubbles">
+  :root{
+    --bg-overlay: rgba(6, 16, 24, 0.62);
+    --bg-overlay-2: rgba(6, 16, 24, 0.35);
+  }
+  /* Background image + readability overlay */
+  html{background:#061018;}
+  body{position:relative; min-height:100%;}
+  body{
+    background: url('4kings_bg_1920.webp') center/cover no-repeat fixed;
+  }
+  body::before{
+    content:'';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(1200px 600px at 30% 20%, var(--bg-overlay-2), transparent 60%),
+                linear-gradient(180deg, var(--bg-overlay), rgba(6,16,24,0.72));
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Bubble layer */
+  #bubble-layer{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+  }
+  #bubble-layer .bubble{
+    position: absolute;
+    bottom: -120px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%,
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.10) 35%,
+      rgba(255,255,255,0.03) 60%,
+      rgba(255,255,255,0.00) 72%);
+    box-shadow: 0 0 24px rgba(120, 220, 255, 0.12);
+    filter: blur(0.2px);
+    opacity: 0.55;
+    transform: translate3d(0,0,0);
+    animation: floatUp var(--dur) linear infinite;
+  }
+  #bubble-layer .bubble::after{
+    content:'';
+    position:absolute;
+    inset: 10%;
+    border-radius: inherit;
+    border: 1px solid rgba(255,255,255,0.12);
+    opacity: 0.65;
+  }
+
+  @keyframes floatUp{
+    from { transform: translate3d(0, 0, 0) scale(var(--s)); }
+    to   { transform: translate3d(var(--dx), calc(-110vh - 200px), 0) scale(var(--s)); }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    #bubble-layer{ display:none; }
+    body{ background-attachment: scroll; }
+  }
+</style>
+
 </head>
 
 <body>
-
-    <div class="top-banner" aria-label="4 Kings Cleaning Services LLC banner">
-        <picture>
-            <source srcset="4kings_banner_top_1800x500.webp" type="image/webp">
-            <img src="4kings_banner_top_1800x500.png" alt="4 Kings Cleaning Services LLC" loading="eager" decoding="async">
-        </picture>
-    </div>
-
     <header class="nav" id="top">
         <div class="wrap nav-inner">
             <a class="brand" href="#top" aria-label="4 Kings Cleaning Services LLC Home">
-  <img class="logo" src="4kings_logo_256.webp" alt="4 Kings Cleaning Services LLC logo" loading="eager" decoding="async" />
+  <div class="logo" aria-hidden="true"></div>
   <div class="brandtext">
     <strong>4 Kings Cleaning Services LLC</strong>
     <span>Licensed &amp; Insured • Norfolk, VA • Hampton Roads</span>
@@ -1525,5 +1566,48 @@ ${data.get("notes") || "N/A"}
       form.reset();
     });
     </script>
+
+<script id="zuzu-bubbles-js">
+(function(){
+  const layer = document.getElementById('bubble-layer');
+  if(!layer) return;
+
+  const bubbleCount = 26; // balanced: looks alive without cooking performance
+  const rand = (min,max)=>Math.random()*(max-min)+min;
+
+  function makeBubble(){
+    const b = document.createElement('span');
+    b.className = 'bubble';
+
+    const size = rand(18, 92);
+    const left = rand(-5, 105);
+    const dur  = rand(10, 26);
+    const delay = rand(-20, 0); // negative so they start already in motion
+    const dx = rand(-40, 40);
+    const scale = rand(0.65, 1.25);
+
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = left + 'vw';
+    b.style.setProperty('--dur', dur + 's');
+    b.style.animationDelay = delay + 's';
+    b.style.setProperty('--dx', dx + 'px');
+    b.style.setProperty('--s', scale);
+
+    // Slight variety
+    b.style.opacity = String(rand(0.22, 0.58));
+
+    layer.appendChild(b);
+
+    // Cleanup & respawn
+    const ttl = (dur - delay) * 1000 + 2000;
+    setTimeout(()=>{ b.remove(); makeBubble(); }, ttl);
+  }
+
+  // Seed bubbles
+  for(let i=0;i<bubbleCount;i++) makeBubble();
+})();
+</script>
+
 </body>
 </html>
