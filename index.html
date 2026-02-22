@@ -92,12 +92,13 @@
 
         .logo{
             width:75px;height:75px;border-radius:16px;
-            object-fit:cover;
-            display:block;
-            background:transparent;
-            border:1px solid rgba(255,255,255,.22);
-            box-shadow:0 10px 30px rgba(0,0,0,.35);
-            flex:0 0 auto;
+            background:
+              radial-gradient(18px 18px at 28% 28%, rgba(255,255,255,.55), transparent 60%),
+              radial-gradient(18px 18px at 70% 62%, rgba(255,255,255,.28), transparent 62%),
+              linear-gradient(135deg, rgba(34,200,255,1) 0%, rgba(46,242,196,1) 60%, rgba(184,255,74,.95) 120%);
+            box-shadow: 0 18px 45px rgba(34,200,255,.20);
+            display:grid;place-items:center;
+            position:relative;
         }
         .logo:after{
             content:"👑";
@@ -821,24 +822,65 @@
 }
 
 
-        /* Top banner */
-        .top-banner{
-            width:100%;
-            border-bottom:1px solid var(--line);
-            background:rgba(0,0,0,.15);
-        }
-        .top-banner img{
-            width:100%;
-            height:auto;
-            display:block;
-            max-height:320px;
-            object-fit:cover;
-        }
-        @media (min-width: 900px){
-            .top-banner img{ max-height:420px; }
-        }
+/* --- Background image + readable glass + bubbles --- */
+#bg-layer{
+  position:fixed; inset:0;
+  background-image:url('4kings_bg_1920.webp');
+  background-size:cover;
+  background-position:center 35%;
+  transform:scale(1.06);
+  filter: blur(3px) saturate(1) brightness(.32) contrast(1.05);
+  z-index:-3;
+}
+#bg-overlay{
+  position:fixed; inset:0;
+  background: linear-gradient(180deg, rgba(3,10,14,.92), rgba(3,10,14,.88) 35%, rgba(3,10,14,.92));
+  z-index:-2;
+}
+#bubble-layer{
+  position:fixed; inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+  opacity:.55;
+  mix-blend-mode:screen;
+  filter: blur(.2px);
+}
+#bubble-layer .b{
+  position:absolute;
+  bottom:-140px;
+  border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,.05) 55%, rgba(255,255,255,0) 72%);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 0 24px rgba(110,240,255,.10);
+  animation: bubble-rise var(--dur) linear infinite;
+  transform: translate3d(0,0,0);
+  opacity: var(--op);
+}
+@keyframes bubble-rise{
+  0%   { transform: translate3d(0,0,0) scale(var(--s)); }
+  100% { transform: translate3d(0, calc(-110vh - 220px), 0) scale(calc(var(--s) * 1.04)); }
+}
 
-    </style>
+/* Make sure content stays above background layers */
+body{ background: transparent !important; }
+.nav{
+  background: rgba(8, 18, 28, .72) !important;
+  backdrop-filter: blur(12px);
+}
+.card, .panel, .cta, .quote, .glass, .tile, .pricing-card{
+  background: rgba(8, 18, 28, .74) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  backdrop-filter: blur(14px);
+}
+input, select, textarea{
+  background: rgba(8, 18, 28, .70) !important;
+}
+.hero h1, .hero .kicker, .hero p{
+  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+}
+
+</style>
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
     <script type="application/ld+json">
@@ -855,18 +897,14 @@
 </head>
 
 <body>
-
-    <div class="top-banner" aria-label="4 Kings Cleaning Services LLC banner">
-        <picture>
-            <source srcset="4kings_banner_top_1800x500.webp" type="image/webp">
-            <img src="4kings_banner_top_1800x500.png" alt="4 Kings Cleaning Services LLC" loading="eager" decoding="async">
-        </picture>
-    </div>
-
-    <header class="nav" id="top">
+    
+    <div id="bg-layer" aria-hidden="true"></div>
+    <div id="bg-overlay" aria-hidden="true"></div>
+    <div id="bubble-layer" aria-hidden="true"></div>
+<header class="nav" id="top">
         <div class="wrap nav-inner">
             <a class="brand" href="#top" aria-label="4 Kings Cleaning Services LLC Home">
-  <img class="logo" src="4kings_logo_256.webp" alt="4 Kings Cleaning Services LLC logo" loading="eager" decoding="async" />
+  <div class="logo" aria-hidden="true"></div>
   <div class="brandtext">
     <strong>4 Kings Cleaning Services LLC</strong>
     <span>Licensed &amp; Insured • Norfolk, VA • Hampton Roads</span>
@@ -1525,5 +1563,42 @@ ${data.get("notes") || "N/A"}
       form.reset();
     });
     </script>
+
+<script>
+(() => {
+  const layer = document.getElementById('bubble-layer');
+  if (!layer) return;
+
+  // Keep it subtle: fewer bubbles on small screens
+  const count = window.matchMedia('(max-width: 720px)').matches ? 16 : 26;
+
+  // Clear any existing (in case of hot reload)
+  layer.innerHTML = '';
+
+  for (let i = 0; i < count; i++) {
+    const b = document.createElement('span');
+    b.className = 'b';
+    const size = 14 + Math.random() * 64;          // px
+    const left = Math.random() * 100;              // %
+    const dur  = 10 + Math.random() * 18;          // s
+    const delay= -Math.random() * dur;             // negative for stagger
+    const drift= (Math.random() * 140) - 70;       // px
+    const op   = 0.10 + Math.random() * 0.20;      // opacity
+    const s    = 0.85 + Math.random() * 0.55;      // scale
+
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = left + '%';
+    b.style.setProperty('--dur', dur + 's');
+    b.style.setProperty('--op', op.toFixed(2));
+    b.style.setProperty('--s', s.toFixed(2));
+    b.style.animationDelay = delay + 's';
+    b.style.marginLeft = drift + 'px';
+
+    layer.appendChild(b);
+  }
+})();
+</script>
+
 </body>
 </html>
