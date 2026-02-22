@@ -1007,6 +1007,11 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
   #before-after .grid-3{grid-template-columns: 1fr !important;}
 }
 
+
+@media (max-width: 980px){
+  #baGrid{grid-template-columns: 1fr !important;}
+}
+
 </style>
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
@@ -1312,7 +1317,7 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
             </div>
         </div>
 
-        <div class="grid-3" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="grid-3" id="baGrid">
             <div class="card ba-card">
                 <div class="tag">Refrigerator</div>
                 <div class="ba" data-ba>
@@ -1355,6 +1360,28 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
                     <input type="range" min="0" max="100" value="50" aria-label="Oven before after slider" data-range>
                 </div>
                 <div class="ba-cap">Oven interior — degreased and detailed.</div>
+            </div>
+
+            <div class="card ba-card">
+                <div class="tag">Kitchen Turnover</div>
+                <div class="ba" data-ba>
+                    <picture>
+                        <source media="(max-width: 720px)" srcset="ba_kitchen_before_960.webp" type="image/webp">
+                        <img class="before" src="ba_kitchen_before.webp" alt="Kitchen before cleaning" loading="lazy" decoding="async">
+                    </picture>
+
+                    <div class="afterWrap" data-after>
+                        <picture>
+                            <source media="(max-width: 720px)" srcset="ba_kitchen_after_960.webp" type="image/webp">
+                            <img class="after" src="ba_kitchen_after.webp" alt="Kitchen after cleaning" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+
+                    <div class="handle" data-handle aria-hidden="true"></div>
+                    <div class="knob" aria-hidden="true">↔</div>
+                    <input type="range" min="0" max="100" value="50" aria-label="Kitchen before after slider" data-range>
+                </div>
+                <div class="ba-cap">Countertops + sink area — reset and ready.</div>
             </div>
         </div>
     </div>
