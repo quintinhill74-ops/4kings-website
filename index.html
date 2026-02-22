@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -832,7 +832,7 @@
                           "description":"Residential and commercial cleaning services including deep clean, move-in/out, standard recurring, and office cleaning.",
                           "areaServed":"Norfolk, VA — Hampton Roads — 7 Cities",
                           "telephone":"+1-757-300-9400",
-                          "url":"https://yourdomain.com"
+                          "url":"https://4kingscleaningservices.netlify.app"
                         }
     </script>
 </head>
@@ -901,17 +901,21 @@
                     <div class="shine" aria-hidden="true"></div>
                     <h3 style="margin:0 0 6px;font-size:18px;letter-spacing:-.2px">Request a Quote</h3>
                     <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
-                        Fill this out and we’ll follow up ASAP. (Edit the phone/email in the code below.)
+                        Fill this out and we’ll follow up ASAP.
                     </p>
 
-                    <form id="quoteForm" class="form-grid" autocomplete="on">
+                    <form id="quoteForm" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="form-grid" autocomplete="on">
+                        <input type="hidden" name="form-name" value="quote" />
+                        <p style="display:none">
+                            <label>Don’t fill this out: <input name="bot-field" /></label>
+                        </p>
                         <div>
                             <label for="name">Full Name</label>
                             <input id="name" name="name" placeholder="Your name" required />
                         </div>
                         <div>
                             <label for="phone">Phone</label>
-                            <input id="phone" name="phone" placeholder="(555) 555-5555" required />
+                            <input id="phone" name="phone" placeholder="(757) 300-9400" required />
                         </div>
 
                         <div>
@@ -962,7 +966,7 @@
 
                         <div class="full" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
                             <button class="btn primary" type="submit">Send Quote Request</button>
-                            <a class="btn" id="emailAlt" href="#">Email Instead</a>
+                            <a class="btn" id="emailAlt" href="mailto:4KingsCleaningservices24@gmail.com">Email Instead</a>
                             <span class="fineprint">By sending, you agree we can contact you about your request.</span>
                         </div>
                     </form>
@@ -1273,25 +1277,8 @@
                         <h4>Do you do same-day?</h4>
                         <p>When availability allows, yes. Submit a request and mark it urgent in the notes.</p>
                     </div>
-      <div class="gallery-card" data-title="Refrigerator Interior — Before/After" data-before="data:image/removed" data-after="data:image/removed">
-        <div class="gallery-img" role="img" aria-label="Gallery image removed"></div>
-        <div class="gallery-meta">
-          <strong>Refrigerator Interior — Before/After</strong>
-          <span>Tap to view before/after</span>
-        </div>
-      </div>
-      <div class="gallery-card" data-title="Refrigerator Exterior — Before/After" data-before="data:image/removed" data-after="data:image/removed">
-        <div class="gallery-img" role="img" aria-label="Gallery image removed"></div>
-        <div class="gallery-meta">
-          <strong>Refrigerator Exterior — Before/After</strong>
-          <span>Tap to view before/after</span>
-        </div>
-      </div>
 
-    
-
-    
-                </div>
+</div>
             </div>
         </section>
 
@@ -1333,14 +1320,14 @@
             <div class="foot">
                 <h5>Contact</h5>
                 <!-- EDIT THESE -->
-                <p><a id="phoneLink" href="tel:+10000000000">📞 (000) 000-0000</a></p>
-                <p><a id="emailLink" href="mailto:quotes@4kingscleaning.com">✉️ quotes@4kingscleaning.com</a></p>
+                <p><a id="phoneLink" href="tel:+17573009400">📞 (757) 300-9400</a></p>
+                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com">✉️ 4KingsCleaningservices24@gmail.com</a></p>
                 <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
             </div>
 
             <div class="foot">
                 <h5>Service Area</h5>
-                <p>Serving: <span id="serviceArea">Your City • Nearby Areas</span></p>
+                <p>Serving: <span id="serviceArea">Norfolk, VA • Hampton Roads • 7 Cities</span></p>
                 <p class="tiny" style="margin-top:10px">
                     Licensed/insured info can go here if applicable.
                 </p>
@@ -1396,60 +1383,6 @@
       toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
     }
 
-        // ====== Gallery Lightbox ======
-        // Gallery images removed on this version; keep code guarded so nothing breaks if the section is missing.
-        const lightbox = document.getElementById("lightbox");
-        if (lightbox) {
-            const lightboxTitle = document.getElementById("lightboxTitle");
-            const lightboxBefore = document.getElementById("lightboxBefore");
-            const lightboxAfter = document.getElementById("lightboxAfter");
-            const lightboxClose = document.getElementById("lightboxClose");
-
-            function openLightbox({ title, before, after }) {
-                if (lightboxTitle) lightboxTitle.textContent = title || "Before & After";
-                if (lightboxBefore) lightboxBefore.src = before || "";
-                if (lightboxAfter) lightboxAfter.src = after || "";
-                lightbox.classList.add("show");
-                lightbox.setAttribute("aria-hidden", "false");
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove("show");
-                lightbox.setAttribute("aria-hidden", "true");
-                if (lightboxBefore) lightboxBefore.src = "";
-                if (lightboxAfter) lightboxAfter.src = "";
-            }
-
-            document.querySelectorAll(".gallery-card").forEach(card => {
-                card.addEventListener("click", () => {
-                    openLightbox({
-                        title: card.dataset.title,
-                        before: card.dataset.before,
-                        after: card.dataset.after || card.dataset.before
-                    });
-                });
-            });
-
-            if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-            lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) closeLightbox();
-            });
-
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
-            });
-        }
-});
-        });
-
-        lightboxClose.addEventListener("click", closeLightbox);
-        lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
-        });
-
     // "Text Us Info" copies prefilled SMS text (you can also open SMS on mobile)
     const copyTextBtn = document.getElementById("copyTextBtn");
     copyTextBtn.addEventListener("click", async () => {
@@ -1492,13 +1425,10 @@ ${data.get("notes") || "N/A"}
       window.location.href = buildEmailLink(data);
     });
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      window.location.href = buildEmailLink(data);
-      showToast("Opening your email app…");
-      form.reset();
-    });
-    </script>
+    form.addEventListener("submit", () => {
+  // Netlify will handle the POST + redirect (action="/thank-you.html").
+  showToast("Sending request…");
+});
+</script>
 </body>
 </html>
