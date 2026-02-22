@@ -838,9 +838,14 @@
 
 <style id="zuzu-bg-bubbles">
   :root{
-    --bg-overlay: rgba(6, 16, 24, 0.62);
-    --bg-overlay-2: rgba(6, 16, 24, 0.35);
-  }
+    --bg-overlay: rgba(2, 10, 16, 0.82);
+    --bg-overlay-2: rgba(2, 10, 16, 0.52);
+    --card-dark: rgba(6, 27, 36, 0.82);
+    --card-dark-2: rgba(6, 27, 36, 0.66);
+    --card-border: rgba(239,249,255,.20);
+    --bubble-opacity: 0.35;
+    --bubble-glow: rgba(120, 220, 255, 0.10);
+    }
   /* Background image + readability overlay */
   html{background:#061018;}
   body{position:relative; min-height:100%;}
@@ -854,7 +859,7 @@
     background: radial-gradient(1200px 600px at 30% 20%, var(--bg-overlay-2), transparent 60%),
                 linear-gradient(180deg, var(--bg-overlay), rgba(6,16,24,0.72));
     pointer-events: none;
-    z-index: -1;
+    z-index: -2;
   }
 
   /* Bubble layer */
@@ -863,7 +868,7 @@
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1;
+    z-index: -3;
   }
   #bubble-layer .bubble{
     position: absolute;
@@ -874,9 +879,9 @@
       rgba(255,255,255,0.10) 35%,
       rgba(255,255,255,0.03) 60%,
       rgba(255,255,255,0.00) 72%);
-    box-shadow: 0 0 24px rgba(120, 220, 255, 0.12);
+    box-shadow: 0 0 24px var(--bubble-glow);
     filter: blur(0.2px);
-    opacity: 0.55;
+    opacity: var(--bubble-opacity);
     transform: translate3d(0,0,0);
     animation: floatUp var(--dur) linear infinite;
   }
@@ -899,6 +904,20 @@
     #bubble-layer{ display:none; }
     body{ background-attachment: scroll; }
   }
+
+  /* Ensure content stays above background layers */
+  header.nav, main, footer{ position: relative; z-index: 1; }
+
+  /* Make glass panels readable over a busy background */
+  .nav{ background: rgba(6,27,36,.82) !important; }
+  .card, .gallery-card, .pill{
+    background: linear-gradient(180deg, var(--card-dark), var(--card-dark-2)) !important;
+    border: 1px solid var(--card-border) !important;
+    backdrop-filter: blur(14px) saturate(120%);
+  }
+  /* Slight text lift for readability */
+  h1,h2,h3, .brandtext strong{ text-shadow: 0 2px 16px rgba(0,0,0,.55); }
+  p, .muted, .nav a{ text-shadow: 0 2px 14px rgba(0,0,0,.45); }
 </style>
 
 </head>
