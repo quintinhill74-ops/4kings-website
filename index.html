@@ -1,0 +1,2263 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="4 Kings Cleaning Services LLC provides reliable residential and commercial cleaning. Book a deep clean, move-in/out, standard recurring, office cleaning, and more." />
+    <meta name="theme-color" content="#0b1220" />
+    <title>4 Kings Cleaning Services LLC | Residential & Commercial Cleaning</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="4 Kings Cleaning Services LLC | Cleaning done right." />
+    <meta property="og:description" content="Reliable residential & commercial cleaning. Fast quotes. Flexible scheduling. Satisfaction focused." />
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="https://www.4kingscleaningservices.com/" />
+    <meta property="og:url" content="https://www.4kingscleaningservices.com/" />
+    <meta property="og:image" content="https://www.4kingscleaningservices.com/4kings_banner_top_1800x500.png" />
+
+    <style>
+        :root{
+      --bg:#061b24;
+      --bg2:#083042;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.12);
+      --text:#eff9ff;
+      --muted:rgba(239,249,255,.78);
+      --line:rgba(239,249,255,.16);
+      --brand:#22c8ff;      /* aqua */
+      --brand2:#2ef2c4;     /* mint */
+      --accent:#ffffff;
+      --ok:#b8ff4a;         /* lime sparkle */
+      --shadow: 0 18px 60px rgba(0,0,0,.42);
+      --radius:18px;
+      --radius2:28px;
+      --max:1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 700px at 15% -10%, rgba(34,200,255,.32), transparent 60%),
+        radial-gradient(800px 600px at 100% 10%, rgba(46,242,196,.22), transparent 55%),
+        radial-gradient(700px 600px at 70% 120%, rgba(184,255,74,.10), transparent 55%),
+        radial-gradient(220px 220px at 18% 40%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(260px 260px at 82% 62%, rgba(255,255,255,.07), transparent 60%),
+        radial-gradient(180px 180px at 52% 22%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      min-height:100vh;
+    }
+        /* Top banner */
+        .top-banner{
+            width:100%;
+            height:260px;
+            overflow:hidden;
+            border-bottom:1px solid rgba(255,255,255,.10);
+            background: rgba(0,0,0,.35);
+        }
+        .top-banner picture, .top-banner img{
+            width:100%;
+            height:100%;
+            display:block;
+        }
+        .top-banner img{
+            object-fit:cover;
+            object-position:center 30%;
+            filter: saturate(1.05) contrast(1.03);
+        }
+        @media (max-width: 860px){
+            .top-banner{height:170px;}
+            .top-banner img{object-position:center 35%;}
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(6,27,36,.72);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 220px;
+        }
+
+        .logo{
+            width:72px;height:72px;border-radius:16px;
+            background: url("4kings_logo_256.webp") center/cover no-repeat;
+            box-shadow: 0 14px 40px rgba(0,0,0,.45);
+            position:relative;flex:none;
+        }
+        .logo:after{content:"";}
+        .brand-title{
+            font-size:15px;
+            margin:0;
+            letter-spacing:.2px;
+            font-weight:900;
+            line-height:1.05;
+            background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.75));
+            -webkit-background-clip:text;
+            background-clip:text;
+            color:transparent;
+        }
+        .brand-sub{
+            display:block;
+            font-size:12px;
+            color:var(--muted);
+            margin-top:3px;
+        }
+
+        .brand h1{margin:0}
+
+        .brand span{display:block}
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+            .links a {
+                font-size: 13px;
+                color: var(--muted);
+                padding: 8px 10px;
+                border-radius: 12px;
+                border: 1px solid transparent;
+            }
+
+                .links a:hover {
+                    color: var(--text);
+                    border-color: var(--line);
+                    background: rgba(255,255,255,.03)
+                }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 14px;
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.04);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform .12s ease, background .12s ease, border-color .12s ease;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+            .btn:hover {
+                transform: translateY(-1px);
+                background: rgba(255,255,255,.07);
+                border-color: rgba(255,255,255,.22)
+            }
+
+            .btn.primary{
+                border-color: transparent;
+                background: linear-gradient(135deg, rgba(34,200,255,1) 0%, rgba(46,242,196,1) 60%, rgba(184,255,74,.95) 120%);
+                color:#05202a;
+                box-shadow: 0 18px 55px rgba(34,200,255,.18);
+            }
+
+                .btn.primary:hover {
+                    filter: saturate(1.05);
+                    transform: translateY(-1px)
+                }
+
+            .btn.small {
+                padding: 9px 12px;
+                border-radius: 12px
+            }
+
+        .hamburger {
+            display: none
+        }
+
+        
+        .hero{
+            padding:64px 0 26px;
+            position:relative;
+        }
+        .hero:before{
+            content:"";
+            position:absolute;
+            inset:-40px 0 auto 0;
+            height:260px;
+            background:
+              radial-gradient(22px 22px at 12% 40%, rgba(255,255,255,.10), transparent 60%),
+              radial-gradient(28px 28px at 32% 20%, rgba(255,255,255,.08), transparent 60%),
+              radial-gradient(18px 18px at 58% 55%, rgba(255,255,255,.07), transparent 60%),
+              radial-gradient(26px 26px at 78% 30%, rgba(255,255,255,.09), transparent 60%),
+              radial-gradient(20px 20px at 92% 60%, rgba(255,255,255,.07), transparent 60%);
+            pointer-events:none;
+            filter: blur(.2px);
+            opacity:.9;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), rgba(255,255,255,.1));
+            outline: 2px solid rgba(34,200,255,.45);
+        }
+
+        .hero h2 {
+            font-size: 44px;
+            line-height: 1.08;
+            margin: 16px 0 12px;
+            letter-spacing: -.6px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 58ch;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px
+        }
+
+        .kpis {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .kpi {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+            border-radius: 16px;
+            padding: 12px;
+        }
+
+            .kpi strong {
+                display: block;
+                font-size: 14px
+            }
+
+            .kpi span {
+                display: block;
+                color: var(--muted);
+                font-size: 12px;
+                margin-top: 2px
+            }
+
+        .card {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+            border-radius: var(--radius2);
+            box-shadow: var(--shadow);
+        }
+
+        .quote-card {
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine {
+            position: absolute;
+            inset: -120px -120px auto auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, rgba(25,211,255,.22), transparent 60%);
+            filter: blur(2px);
+            pointer-events: none;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        label {
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        input, select, textarea {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.18);
+            background: rgba(8,12,20,.35);
+            color: var(--text);
+            padding: 11px 12px;
+            font-family: inherit;
+            outline: none;
+        }
+
+            input:focus, select:focus, textarea:focus {
+                border-color: rgba(25,211,255,.55);
+                box-shadow: 0 0 0 4px rgba(25,211,255,.12);
+            }
+
+        textarea {
+            min-height: 96px;
+            resize: vertical
+        }
+
+        .full {
+            grid-column: 1 / -1
+        }
+
+        .fineprint {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 38px 0
+        }
+
+        .section-title {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+            .section-title h3 {
+                margin: 0;
+                font-size: 22px;
+                letter-spacing: -.2px
+            }
+
+            .section-title p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                max-width: 64ch
+            }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px
+        }
+
+        .service {
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+        }
+
+            .service h4 {
+                margin: 8px 0 6px;
+                font-size: 15px
+            }
+
+            .service p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.55
+            }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: rgba(234,240,255,.78);
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.03);
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.04);
+            display: grid;
+            place-items: center;
+        }
+
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px;
+        }
+
+        .plan {
+            padding: 18px;
+            border-radius: var(--radius2);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .plan.best {
+                border-color: rgba(25,211,255,.45);
+                background: linear-gradient(180deg, rgba(25,211,255,.10), rgba(255,255,255,.03));
+            }
+
+        .badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(25,211,255,.18);
+            border: 1px solid rgba(25,211,255,.35);
+            color: rgba(234,240,255,.95);
+        }
+
+        .plan h4 {
+            margin: 0 0 4px;
+            font-size: 16px
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 10px 0 6px
+        }
+
+        .plan p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55
+        }
+
+        ul {
+            margin: 12px 0 0;
+            padding: 0 0 0 18px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .testimonial {
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+        }
+
+            .testimonial p {
+                margin: 0 0 10px;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.6
+            }
+
+        .who {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(124,92,255,.8), rgba(25,211,255,.7));
+            border: 1px solid rgba(255,255,255,.16);
+        }
+
+        footer {
+            padding: 26px 0 40px;
+            border-top: 1px solid var(--line);
+            background: rgba(0,0,0,.12);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .foot p, .foot a {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0
+        }
+
+        .foot h5 {
+            margin: 0 0 10px;
+            font-size: 13px
+        }
+
+        .tiny {
+            font-size: 12px;
+            color: rgba(234,240,255,.6)
+        }
+
+        .hr {
+            height: 1px;
+            background: var(--line);
+            margin: 16px 0
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 18px;
+            z-index: 999;
+            background: rgba(10,14,25,.85);
+            border: 1px solid rgba(255,255,255,.18);
+            box-shadow: var(--shadow);
+            padding: 12px 14px;
+            border-radius: 999px;
+            color: var(--text);
+            font-size: 13px;
+            display: none;
+            gap: 10px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+            .toast.show {
+                display: flex;
+                animation: pop .18s ease
+            }
+
+        
+        @keyframes floaty{0%{transform:translateY(-1px)}50%{transform:translateY(-4px)}100%{transform:translateY(-1px)}}
+        .logo:after{animation: floaty 2.6s ease-in-out infinite;}
+
+@keyframes pop {
+            from {
+                transform: translateX(-50%) translateY(8px);
+                opacity: .6
+            }
+
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1
+            }
+        }
+
+        
+        .service:hover, .plan:hover, .testimonial:hover, .gallery-card:hover{
+            box-shadow: 0 18px 55px rgba(34,200,255,.10);
+        }
+        .service:hover{border-color: rgba(34,200,255,.28)}
+        .plan:hover{border-color: rgba(46,242,196,.28)}
+        .testimonial:hover{border-color: rgba(184,255,74,.22)}
+
+/* Responsive */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+
+            .kpis {
+                grid-template-columns: 1fr;
+                gap: 10px
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 12px
+            }
+
+            .pricing {
+                grid-template-columns: 1fr;
+                gap: 12px
+            }
+
+            .split {
+                grid-template-columns: 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+
+            .brand {
+                min-width: auto
+            }
+
+            .links {
+                display: none
+            }
+
+            .hamburger {
+                display: inline-flex
+            }
+
+            .nav.open .links {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                padding: 0 0 12px;
+            }
+
+            .nav.open .nav-inner {
+                flex-wrap: wrap
+            }
+
+            .nav.open .links a {
+                border: 1px solid var(--line);
+                background: rgba(255,255,255,.03)
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px;
+        }
+
+        .gallery-card {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+            border-radius: var(--radius2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform .12s ease, border-color .12s ease, background .12s ease;
+        }
+
+            .gallery-card:hover {
+                transform: translateY(-2px);
+                border-color: rgba(25,211,255,.35);
+                background: rgba(255,255,255,.05);
+            }
+
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            display: block;
+            object-fit: cover;
+            background: rgba(255,255,255,.04);
+        }
+
+        .gallery-meta {
+            padding: 12px 12px 14px;
+        }
+
+            .gallery-meta strong {
+                display: block;
+                font-size: 13px
+            }
+
+            .gallery-meta span {
+                display: block;
+                color: var(--muted);
+                font-size: 12px;
+                margin-top: 2px
+            }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+
+            .lightbox.show {
+                display: flex
+            }
+
+        .lightbox-inner {
+            max-width: 980px;
+            width: 100%;
+            border-radius: var(--radius2);
+            border: 1px solid rgba(255,255,255,.18);
+            background: rgba(11,18,32,.92);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .lightbox-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .lightbox-title {
+            font-weight: 800;
+            font-size: 13px
+        }
+
+        .lightbox-close {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.04);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+        .lightbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+            .lightbox-grid figure {
+                margin: 0
+            }
+
+            .lightbox-grid img {
+                width: 100%;
+                height: 360px;
+                object-fit: cover;
+                display: block;
+            }
+
+        .lightbox-cap {
+            padding: 10px 14px;
+            color: var(--muted);
+            font-size: 12px;
+            border-top: 1px solid var(--line);
+        }
+
+        @media (max-width: 980px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-grid {
+                grid-template-columns: 1fr;
+            }
+
+                .lightbox-grid img {
+                    height: 280px;
+                }
+        }
+    
+/* Brand logo */
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.brand img{
+  width:85px; height:85px; border-radius:12px;
+  border:1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 10px 30px rgba(25,211,255,.18);
+}
+.brand .brandtext{line-height:1.1}
+.brand .brandtext strong{display:block; font-weight:900; letter-spacing:.2px}
+.brand .brandtext span{display:block; color: var(--muted); font-size:12px; margin-top:3px}
+@media (max-width: 720px){
+  .brand img{width:65px;height:65px}
+  .brand .brandtext span{display:none}
+}
+
+
+/* --- Background image + readable glass + bubbles --- */
+#bg-layer{
+  position:fixed; inset:0;
+  background-image:url('4kings_bg_1920.webp');
+  background-size:cover;
+  background-position:center 35%;
+  transform:scale(1.06);
+  filter: blur(3px) saturate(1) brightness(.32) contrast(1.05);
+  z-index:-3;
+}
+#bg-overlay{
+  position:fixed; inset:0;
+  background: linear-gradient(180deg, rgba(3,10,14,.92), rgba(3,10,14,.88) 35%, rgba(3,10,14,.92));
+  z-index:-2;
+}
+#bubble-layer{
+  position:fixed; inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+  opacity:.55;
+  mix-blend-mode:screen;
+  filter: blur(.2px);
+}
+#bubble-layer .b{
+  position:absolute;
+  bottom:-140px;
+  border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,.05) 55%, rgba(255,255,255,0) 72%);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 0 24px rgba(110,240,255,.10);
+  animation: bubble-rise var(--dur) linear infinite;
+  transform: translate3d(0,0,0);
+  opacity: var(--op);
+}
+@keyframes bubble-rise{
+  0%   { transform: translate3d(0,0,0) scale(var(--s)); }
+  100% { transform: translate3d(0, calc(-110vh - 220px), 0) scale(calc(var(--s) * 1.04)); }
+}
+
+/* Make sure content stays above background layers */
+body{ background: transparent !important; }
+.nav{
+  background: rgba(8, 18, 28, .72) !important;
+  backdrop-filter: blur(12px);
+}
+.card, .panel, .cta, .quote, .glass, .tile, .pricing-card{
+  background: rgba(8, 18, 28, .74) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  backdrop-filter: blur(14px);
+}
+input, select, textarea{
+  background: rgba(8, 18, 28, .70) !important;
+}
+.hero h1, .hero .kicker, .hero p{
+  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+}
+
+</style>
+
+    <!-- Local Business Schema (edit phone/address when you have them) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HouseCleaningService",
+  "name": "4 Kings Cleaning Services LLC",
+  "url": "https://www.4kingscleaningservices.com/",
+  "telephone": "+17573009400",
+  "email": "4KingsCleaningservices24@gmail.com",
+  "description": "Residential and commercial cleaning services in Norfolk, VA and the Hampton Roads area: standard/recurring, deep cleaning, move-in/out, office/commercial, post-construction, and Airbnb turnovers.",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Norfolk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Virginia Beach",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Chesapeake",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Portsmouth",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Suffolk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Hampton",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Newport News",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    }
+  ],
+  "serviceType": [
+    "Standard / Recurring Cleaning",
+    "Deep Cleaning",
+    "Move-In / Move-Out Cleaning",
+    "Office / Commercial Cleaning",
+    "Post-Construction Cleaning",
+    "Airbnb / Turnover Cleaning"
+  ],
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday"
+      ],
+      "opens": "11:00",
+      "closes": "17:00"
+    }
+  ],
+  "image": "https://www.4kingscleaningservices.com/4kings_banner_top_1800x500.png",
+  "sameAs": []
+}
+    </script>
+</head>
+
+<body>
+    
+    <div id="bg-layer" aria-hidden="true"></div>
+    <div id="bg-overlay" aria-hidden="true"></div>
+    <div id="bubble-layer" aria-hidden="true"></div>
+
+    <div class="top-banner" aria-label="4 Kings Cleaning Services Banner">
+        <picture>
+            <source srcset="4kings_banner_top_1800x500.webp" type="image/webp">
+            <img src="4kings_banner_top_1800x500.png" alt="4 Kings Cleaning Services LLC banner" loading="eager" decoding="async">
+        </picture>
+    </div>
+<header class="nav" id="top">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#top" aria-label="4 Kings Cleaning Services LLC Home">
+  <div class="logo" aria-hidden="true"></div>
+  <div class="brandtext">
+    <strong>4 Kings Cleaning Services LLC</strong>
+    <span>Licensed &amp; Insured • Norfolk, VA • Hampton Roads</span>
+  </div>
+</a>
+
+            <button class="btn small hamburger" id="menuBtn" aria-label="Open menu">☰ Menu</button>
+
+            <nav class="links" aria-label="Primary">
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#process">How It Works</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faq">FAQ</a>
+                <a class="btn small" href="#book">Book Now</a>
+                <a class="btn small" href="#quote">Get a Quote</a>
+                <a class="btn small primary" id="callTop" href="tel:+17573009400">Call Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="pill"><span class="dot"></span> Licensed & Insured • Checklist-Based • Hampton Roads</div>
+                    <h2>Sparkling clean spaces.<br />Norfolk &amp; Hampton Roads.</h2>
+                    <p>
+                        4 Kings Cleaning Services LLC delivers high-standard cleaning for homes and businesses—no drama, no shortcuts.
+                        We show up on time, work with a checklist, and leave your space looking like it got its life together.
+                    </p>
+
+                    <div class="cta-row">
+                        <a class="btn primary" href="#quote">Get a Free Quote</a>
+                        <a class="btn" href="#services">Explore Services</a>
+                        <button class="btn" id="copyTextBtn" type="button">Text Us Info</button>
+                    </div>
+
+                    <div class="kpis" aria-label="Key highlights">
+                        <div class="kpi">
+                            <strong>Residential & Commercial</strong>
+                            <span>Recurring, deep clean, move-in/out</span>
+                        </div>
+                        <div class="kpi">
+                            <strong>Checklist-Driven</strong>
+                            <span>Detail work you can actually see</span>
+                        </div>
+                        <div class="kpi">
+                            <strong>Trusted & Professional</strong>
+                            <span>Respectful team, clean finish</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUICK QUOTE CARD -->
+                <div class="card quote-card" id="quote">
+                    <div class="shine" aria-hidden="true"></div>
+                    <h3 style="margin:0 0 6px;font-size:18px;letter-spacing:-.2px">Request a Quote</h3>
+                    <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                        Fill this out and we’ll follow up ASAP. 
+                    </p>
+
+                    <form id="quoteForm" class="form-grid" autocomplete="on">
+                        <div>
+                            <label for="name">Full Name</label>
+                            <input id="name" name="name" placeholder="Your name" required />
+                        </div>
+                        <div>
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" placeholder="(555) 555-5555" required />
+                        </div>
+
+                        <div>
+                            <label for="service">Service</label>
+                            <select id="service" name="service" required>
+                                <option value="" selected disabled>Select a service</option>
+                                <option>Standard / Recurring Cleaning</option>
+                                <option>Deep Cleaning</option>
+                                <option>Move-In / Move-Out</option>
+                                <option>Office / Commercial</option>
+                                <option>Post-Construction</option>
+                                <option>Airbnb / Turnover</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="frequency">Frequency</label>
+                            <select id="frequency" name="frequency" required>
+                                <option value="" selected disabled>Select frequency</option>
+                                <option>One-time</option>
+                                <option>Weekly</option>
+                                <option>Bi-weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="size">Home/Office Size</label>
+                            <select id="size" name="size" required>
+                                <option value="" selected disabled>Select size</option>
+                                <option>Studio / 1 Bed</option>
+                                <option>2 Bed</option>
+                                <option>3 Bed</option>
+                                <option>4+ Bed</option>
+                                <option>Office - Small</option>
+                                <option>Office - Medium</option>
+                                <option>Office - Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date">Preferred Date</label>
+                            <input id="date" name="date" type="date" />
+                        </div>
+
+                        <div class="full">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" placeholder="Pets? Heavy buildup? Priority areas? Access notes?"></textarea>
+                        </div>
+
+                        <div class="full" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                            <button class="btn primary" type="submit">Send Quote Request</button>
+                            <a class="btn" id="emailAlt" href="#">Email Instead</a>
+                            <span class="fineprint">By sending, you agree we can contact you about your request.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>Services</h3>
+                        <p>From weekly upkeep to “I’m moving tomorrow” panic-cleaning—pick what fits and we’ll handle the rest.</p>
+                    </div>
+                    <a class="btn small" href="#quote">Get pricing</a>
+                </div>
+
+                <div class="grid-3">
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">🏠</div>
+                        <h4>Standard / Recurring</h4>
+                        <p>Maintenance cleaning to keep your space consistently fresh—weekly, bi-weekly, or monthly.</p>
+                        <div style="margin-top:10px" class="tag">Best for: busy households</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">✨</div>
+                        <h4>Deep Cleaning</h4>
+                        <p>Detail-focused clean: baseboards, buildup, corners, and the stuff “standard” doesn’t touch.</p>
+                        <div style="margin-top:10px" class="tag">Best for: seasonal reset</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">📦</div>
+                        <h4>Move-In / Move-Out</h4>
+                        <p>Make-ready cleaning for rentals and home sales—so the place looks brand new (or close).</p>
+                        <div style="margin-top:10px" class="tag">Best for: transitions</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">🏢</div>
+                        <h4>Office / Commercial</h4>
+                        <p>Professional cleaning for offices, suites, storefronts, and common areas—after hours available.</p>
+                        <div style="margin-top:10px" class="tag">Best for: businesses</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">🧱</div>
+                        <h4>Post-Construction</h4>
+                        <p>Dust, debris, and residue cleanup after renovation or build-outs—careful, thorough, safe.</p>
+                        <div style="margin-top:10px" class="tag">Best for: remodels</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">🛏️</div>
+                        <h4>Airbnb / Turnover</h4>
+                        <p>Fast turnaround with consistent standards: linens, reset, and photo-ready presentation.</p>
+                        <div style="margin-top:10px" class="tag">Best for: hosts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- SERVICE AREA -->
+<section id="service-area">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Service Area</h3>
+                <p>We serve Norfolk and the Hampton Roads region. Check your ZIP in seconds.</p>
+            </div>
+        </div>
+
+        <div class="split">
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">ZIP Code Checker</div>
+                <h4 style="margin:10px 0 6px">Do we serve your area?</h4>
+                <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                    Enter your ZIP and we’ll confirm if you’re in our typical coverage zone (Hampton Roads).
+                </p>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px">
+                    <input id="zipInput" inputmode="numeric" autocomplete="postal-code" placeholder="e.g., 23510" style="max-width:220px" />
+                    <button class="btn primary" id="zipCheckBtn" type="button">Check ZIP</button>
+                    <span class="tag" id="zipResult" style="display:none"></span>
+                </div>
+
+                <div class="hr"></div>
+                <h4 style="margin:0 0 8px">Cities we commonly cover</h4>
+                <ul>
+                    <li>Norfolk</li>
+                    <li>Virginia Beach</li>
+                    <li>Chesapeake</li>
+                    <li>Portsmouth</li>
+                    <li>Suffolk</li>
+                    <li>Hampton</li>
+                    <li>Newport News</li>
+                </ul>
+
+                <p class="fineprint" style="margin-top:12px">
+                    Outside the area? Still reach out — we may be able to schedule depending on the job.
+                </p>
+            </div>
+
+            <div class="card" style="padding:0;border-radius:var(--radius2);overflow:hidden">
+                <div style="padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <div style="font-weight:900">Hampton Roads Map</div>
+                        <div class="tiny">Approximate service area view</div>
+                    </div>
+                    <a class="btn small" href="#book">Book now</a>
+                </div>
+                <iframe
+                    title="Hampton Roads service area map"
+                    style="width:100%;height:360px;border:0;display:block"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-76.704%2C36.735%2C-75.865%2C37.128&amp;layer=mapnik">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION LANDING (SEO) -->
+<section id="locations">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Cleaning Services in Norfolk &amp; Hampton Roads</h3>
+                <p>Local, checklist-based cleaning for homes and businesses across the 7 Cities.</p>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="service">
+                <div class="icon" aria-hidden="true">📍</div>
+                <h4>Norfolk, VA</h4>
+                <p>Deep cleans, move-in/out, recurring, and office cleaning in Norfolk — focused on kitchens, bathrooms, and high-touch details.</p>
+                <div style="margin-top:10px" class="tag">Popular ZIPs: 235xx</div>
+            </div>
+            <div class="service">
+                <div class="icon" aria-hidden="true">🌊</div>
+                <h4>Virginia Beach</h4>
+                <p>Turnovers, recurring maintenance cleans, and move-out cleaning for homes, rentals, and short-term stays.</p>
+                <div style="margin-top:10px" class="tag">Popular ZIPs: 234xx</div>
+            </div>
+            <div class="service">
+                <div class="icon" aria-hidden="true">🏙️</div>
+                <h4>Hampton Roads (7 Cities)</h4>
+                <p>Chesapeake, Portsmouth, Suffolk, Hampton, and Newport News — tell us your scope and we’ll confirm availability.</p>
+                <div style="margin-top:10px" class="tag">Common prefixes: 233–237</div>
+            </div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="#book">Book now</a>
+            <a class="btn" href="#quote">Get a quote</a>
+        </div>
+    </div>
+</section>
+
+<section id="trust">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>Trusted, Professional, Consistent</h3>
+                        <p>We don’t “wing it.” We run a repeatable process and deliver a clean you can verify.</p>
+                    </div>
+                    <a class="btn small" href="#book">Book Now</a>
+                <a class="btn small" href="#quote">Get a Quote</a>
+                </div>
+
+                <div class="grid-3">
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">🛡️</div>
+                        <h4>Licensed & Insured</h4>
+                        <p>Peace of mind for homeowners, renters, property managers, and businesses in Hampton Roads.</p>
+                        <div style="margin-top:10px" class="tag">Norfolk, VA • 7 Cities</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">📋</div>
+                        <h4>Checklist-Based Cleaning</h4>
+                        <p>Every job follows a structured zone checklist so nothing gets skipped and quality stays consistent.</p>
+                        <div style="margin-top:10px" class="tag">Quality control built in</div>
+                    </div>
+
+                    <div class="service">
+                        <div class="icon" aria-hidden="true">✅</div>
+                        <h4>Satisfaction Focused</h4>
+                        <p>If something’s off, tell us quickly. We’re fix-it-first and customer-forward.</p>
+                        <div style="margin-top:10px" class="tag">We stand on results</div>
+                    </div>
+                </div>
+
+                <p class="fineprint" style="margin-top:12px">
+                    Want this to hit harder? Add: “Background-checked team” or “Eco-friendly products available” only if true.
+                </p>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section id="pricing">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>Transparent Pricing (Starting)</h3>
+                        <p>Final pricing depends on size, condition, and scope. These tiers keep expectations aligned.</p>
+                    </div>
+                </div>
+
+                <div class="pricing">
+                    <div class="plan">
+                        <h4>Standard Clean</h4>
+                        <div class="price">$129+</div>
+                        <p>Great for maintenance and recurring visits.</p>
+                        <ul>
+                            <li>Kitchens & bathrooms</li>
+                            <li>Floors, dusting, surfaces</li>
+                            <li>Trash removal</li>
+                            <li>Light organization (as needed)</li>
+                        </ul>
+                        <div style="margin-top:14px">
+                            <a class="btn small" href="#quote">Quote this</a>
+                        </div>
+                    </div>
+
+                    <div class="plan best">
+                        <div class="badge">Most Popular</div>
+                        <h4>Deep Clean</h4>
+                        <div class="price">$249+</div>
+                        <p>For heavy buildup, first-time customers, or that “reset my life” clean.</p>
+                        <ul>
+                            <li>Everything in Standard</li>
+                            <li>Baseboards, doors, detail edges</li>
+                            <li>High-touch disinfection</li>
+                            <li>Extra time on problem areas</li>
+                        </ul>
+                        <div style="margin-top:14px">
+                            <a class="btn small primary" href="#quote">Book deep clean</a>
+                        </div>
+                    </div>
+
+                    <div class="plan">
+                        <h4>Move-In/Out</h4>
+                        <div class="price">$299+</div>
+                        <p>Make-ready cleaning that helps you pass inspection and start fresh.</p>
+                        <ul>
+                            <li>Cabinet fronts & inside (on request)</li>
+                            <li>Appliance exterior</li>
+                            <li>Bathrooms detailed</li>
+                            <li>Floors, corners, final polish</li>
+                        </ul>
+                        <div style="margin-top:14px">
+                            <a class="btn small" href="#quote">Quote move-in/out</a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="fineprint" style="margin-top:12px">
+                    Add-ons available: inside fridge/oven, inside cabinets, window interior, laundry, organization, carpet spot treatment.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>How It Works</h3>
+                        <p>A simple, repeatable process. Classic for a reason—because it works.</p>
+                    </div>
+                </div>
+
+                <div class="split">
+                    <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                        <div class="tag">Step 1</div>
+                        <h4 style="margin:10px 0 6px">Request your quote</h4>
+                        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                            Tell us the service, size, and any notes. We’ll confirm scope and price.
+                        </p>
+                        <div class="hr"></div>
+                        <div class="tag">Step 2</div>
+                        <h4 style="margin:10px 0 6px">We clean with a checklist</h4>
+                        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                            Our team follows standard zones so nothing gets missed—kitchen, bath, living areas, floors, details.
+                        </p>
+                        <div class="hr"></div>
+                        <div class="tag">Step 3</div>
+                        <h4 style="margin:10px 0 6px">Final walkthrough mindset</h4>
+                        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                            We do a quick quality scan before we leave. If something’s off, we fix it.
+                        </p>
+                    </div>
+
+                    <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                        <h4 style="margin:0 0 8px">What you can expect</h4>
+                        <ul>
+                            <li>Respect for your space (shoes/booties where appropriate)</li>
+                            <li>Communication that’s clear and professional</li>
+                            <li>Strong attention to kitchens and bathrooms (the deal-breaker rooms)</li>
+                            <li>Flexible scheduling for homes and offices</li>
+                            <li>A clean that feels calm—like the room exhales</li>
+                        </ul>
+                        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+                            <a class="btn primary" href="#quote">Get a quote</a>
+                            <a class="btn" href="#faq">Read FAQ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <!-- BOOK NOW -->
+<section id="book">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Book Now</h3>
+                <p>Lock in a time window. We’ll confirm details and send the final price based on scope.</p>
+            </div>
+        </div>
+
+        <div class="split">
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">Booking Request</div>
+                <h4 style="margin:10px 0 6px">Tell us what you need</h4>
+                <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                    This form can email us and (optionally) save to Google Sheets if you connect the booking endpoint.
+                </p>
+
+                <form id="bookForm" class="form-grid" autocomplete="on" style="margin-top:12px">
+                    <div>
+                        <label for="b_name">Full Name</label>
+                        <input id="b_name" name="name" placeholder="Your name" required />
+                    </div>
+                    <div>
+                        <label for="b_phone">Phone</label>
+                        <input id="b_phone" name="phone" placeholder="(757) 300-9400" required />
+                    </div>
+
+                    <div class="full">
+                        <label for="b_email">Email (optional)</label>
+                        <input id="b_email" name="customer_email" type="email" placeholder="you@example.com" />
+                    </div>
+
+                    <div class="full">
+                        <label for="b_address">Service Address (or neighborhood)</label>
+                        <input id="b_address" name="address" placeholder="Street (optional), City, VA" />
+                    </div>
+
+                    <div>
+                        <label for="b_zip">ZIP</label>
+                        <input id="b_zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="23510" required />
+                    </div>
+                    <div>
+                        <label for="b_service">Service</label>
+                        <select id="b_service" name="service" required>
+                            <option value="" selected disabled>Select a service</option>
+                            <option>Standard / Recurring Cleaning</option>
+                            <option>Deep Cleaning</option>
+                            <option>Move-In / Move-Out</option>
+                            <option>Office / Commercial</option>
+                            <option>Post-Construction</option>
+                            <option>Airbnb / Turnover</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="b_date">Preferred Date</label>
+                        <input id="b_date" name="date" type="date" />
+                    </div>
+                    <div>
+                        <label for="b_time">Preferred Time</label>
+                        <select id="b_time" name="time_window">
+                            <option>Morning (9am–12pm)</option>
+                            <option>Midday (12pm–3pm)</option>
+                            <option>Afternoon (3pm–6pm)</option>
+                            <option>Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="full">
+                        <label for="b_notes">Notes</label>
+                        <textarea id="b_notes" name="notes" placeholder="Beds/baths, pets, heavy buildup, access notes, add-ons…"></textarea>
+                    </div>
+
+                    <!-- spam honeypot -->
+                    <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:1px;width:1px" aria-hidden="true" />
+
+                    <div class="full" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                        <button class="btn primary" type="submit">Submit Booking Request</button>
+                        <a class="btn" href="#quote">Prefer a quote first?</a>
+                        <span class="fineprint">By sending, you agree we can contact you about your request.</span>
+                    </div>
+
+                    <p class="fineprint" style="margin-top:10px">
+                        <strong>Google Sheets save:</strong> paste your Apps Script Web App URL into <code>bookingEndpoint</code> in the code.
+                    </p>
+                </form>
+            </div>
+
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">What happens next</div>
+                <h4 style="margin:10px 0 6px">Fast confirmation</h4>
+                <ul>
+                    <li>We confirm scope (beds/baths, condition, add-ons)</li>
+                    <li>We confirm arrival window and access instructions</li>
+                    <li>We send final price and lock the slot</li>
+                </ul>
+
+                <div class="hr"></div>
+
+                <div class="tag">Pro tip</div>
+                <p style="margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.6">
+                    First-time customers usually get the best results starting with a <strong>Deep Clean</strong> — then switch to recurring.
+                </p>
+
+                <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+                    <a class="btn primary" href="#services">See services</a>
+                    <a class="btn" id="leaveReviewBtn2" href="#" target="_blank" rel="noopener">Leave a review</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>Reviews</h3>
+                        <p>Swap these with your real reviews once you have them (Google, Thumbtack, Facebook, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="testimonial">
+                        <p>“They were on time, super respectful, and the bathrooms looked brand new. I’m booking recurring.”</p>
+                        <div class="who">
+                            <div class="avatar" aria-hidden="true"></div>
+                            <div>
+                                <div style="font-weight:700;font-size:13px">Customer</div>
+                                <div class="tiny">Residential • Deep Clean</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <p>“Office smelled fresh, floors were spotless, and they didn’t miss corners. Solid work.”</p>
+                        <div class="who">
+                            <div class="avatar" aria-hidden="true"></div>
+                            <div>
+                                <div style="font-weight:700;font-size:13px">Client</div>
+                                <div class="tiny">Commercial • Weekly</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <p>“Move-out clean helped me get my deposit back. That’s all I needed to see.”</p>
+                        <div class="who">
+                            <div class="avatar" aria-hidden="true"></div>
+                            <div>
+                                <div style="font-weight:700;font-size:13px">Tenant</div>
+                                <div class="tiny">Move-Out</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="split" style="margin-top:14px">
+    <div class="card" style="padding:18px;border-radius:var(--radius2);overflow:hidden">
+        <div class="tag">Google Reviews</div>
+        <h4 style="margin:10px 0 6px">See us on Google</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            Add your Google Reviews link + Maps embed to show live reviews here.
+        </p>
+
+        <div class="hr"></div>
+
+        <iframe
+            id="googleMapsEmbed"
+            title="4 Kings Cleaning Services on Google Maps"
+            style="width:100%;height:320px;border:0;display:none;border-radius:16px;overflow:hidden"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="">
+        </iframe>
+
+        <div id="googleEmbedFallback" class="fineprint" style="margin-top:10px">
+            To enable this embed: open Google Maps → search your business → Share → Embed a map → copy the iframe src,
+            then paste it into <code>googleMapsEmbedUrl</code> in the code.
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" id="leaveReviewBtn" href="#" target="_blank" rel="noopener">Leave a Review</a>
+            <a class="btn" id="readReviewsBtn" href="#" target="_blank" rel="noopener">Read Reviews</a>
+        </div>
+    </div>
+
+    <div class="card" style="padding:18px;border-radius:var(--radius2)">
+        <div class="tag">Trust builder</div>
+        <h4 style="margin:10px 0 6px">Want reviews like this?</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            After every clean, we can text or email a quick review link. Consistent follow-up = consistent 5-stars.
+        </p>
+
+        <div class="hr"></div>
+
+        <h4 style="margin:0 0 8px">Simple review ask script</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            “Hey! Appreciate you choosing 4 Kings. If you loved the clean, could you drop a quick Google review?
+            It helps us a ton.”
+        </p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#book">Book Now</a>
+            <a class="btn primary" href="#quote">Get a Quote</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <section id="gallery">
+  <div class="wrap">
+    <div class="section-title">
+      <div>
+        <h3>Before &amp; After Gallery</h3>
+        <p>Real results from recent cleans. Tap a card to view before/after.</p>
+      </div>
+      <a class="btn small" href="#quote">Book a Clean</a>
+    </div>
+
+    <div class="gallery" aria-label="Before and after photo gallery">
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Bedroom Refresh — Before/After"
+           data-before="watermarked_gallery/wm_bedroom_before_1400.webp"
+           data-after="watermarked_gallery/wm_bedroom_after_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_bedroom_before_960.webp" alt="Bedroom before cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Bedroom Refresh — Before/After</strong>
+          <span>Tap to view before/after</span>
+        </div>
+      </div>
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Kitchen Reset — Before/After"
+           data-before="watermarked_gallery/wm_kitchen_before_1400.webp"
+           data-after="watermarked_gallery/wm_kitchen_after_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_kitchen_before_960.webp" alt="Kitchen before cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Kitchen Reset — Before/After</strong>
+          <span>Tap to view before/after</span>
+        </div>
+      </div>
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Refrigerator Cleanout — Before/After"
+           data-before="watermarked_gallery/wm_fridge_before_1400.webp"
+           data-after="watermarked_gallery/wm_fridge_after_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_fridge_before_960.webp" alt="Refrigerator before cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Refrigerator Cleanout — Before/After</strong>
+          <span>Tap to view before/after</span>
+        </div>
+      </div>
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Oven Detail — Before/After"
+           data-before="watermarked_gallery/wm_oven_before_1400.webp"
+           data-after="watermarked_gallery/wm_oven_after_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_oven_before_960.webp" alt="Oven before cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Oven Detail — Before/After</strong>
+          <span>Tap to view before/after</span>
+        </div>
+      </div>
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Kitchen Final Look"
+           data-before="watermarked_gallery/wm_kitchen_final_1400.webp"
+           data-after="watermarked_gallery/wm_kitchen_final_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_kitchen_final_960.webp" alt="Kitchen after cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Kitchen Final Look</strong>
+          <span>Tap to view</span>
+        </div>
+      </div>
+      <div class="gallery-card" role="button" tabindex="0"
+           data-title="Appliance Pull + Cleanup"
+           data-before="watermarked_gallery/wm_appliance_move_1400.webp"
+           data-after="watermarked_gallery/wm_appliance_move_1400.webp">
+        <img class="gallery-img" src="watermarked_gallery/wm_appliance_move_960.webp" alt="Appliance moved for cleaning" loading="lazy" decoding="async">
+        <div class="gallery-meta">
+          <strong>Appliance Pull + Cleanup</strong>
+          <span>Tap to view</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Before and after images">
+  <div class="lightbox-inner">
+    <div class="lightbox-head">
+      <div class="lightbox-title" id="lightboxTitle">Before &amp; After</div>
+      <button class="lightbox-close" id="lightboxClose" type="button">Close ✕</button>
+    </div>
+    <div class="lightbox-grid">
+      <figure>
+        <img id="lightboxBefore" alt="Before cleaning" loading="lazy" decoding="async">
+      </figure>
+      <figure>
+        <img id="lightboxAfter" alt="After cleaning" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <div class="lightbox-cap">Tip: pinch-zoom on mobile for details.</div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<section id="faq">
+            <div class="wrap">
+                <div class="section-title">
+                    <div>
+                        <h3>FAQ</h3>
+                        <p>Quick answers. Less back-and-forth. More cleaning.</p>
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="service">
+                        <h4>Do I need to be home?</h4>
+                        <p>Nope. Many clients provide access instructions. If you prefer to be home, that’s fine too.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Do you bring supplies?</h4>
+                        <p>Usually yes. If you want us to use your products (allergies, preferences), tell us in the notes.</p>
+                    </div>
+                    <div class="service">
+                        <h4>How do you price jobs?</h4>
+                        <p>Square footage + condition + scope (deep clean vs standard) + add-ons. Clear, no surprises.</p>
+                    </div>
+                    <div class="service">
+                        <h4>What areas do you serve?</h4>
+                        <p>Edit your service area in the footer + schema tag. You can list cities, counties, or a radius.</p>
+                    </div>
+                    <div class="service">
+                        <h4>What if I’m not satisfied?</h4>
+                        <p>Tell us quickly. We’re fix-it-focused—quality control is part of the process.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Do you do same-day?</h4>
+                        <p>When availability allows, yes. Submit a request and mark it urgent in the notes.</p>
+                    </div>
+      
+
+
+    
+
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section>
+            <div class="wrap">
+                <div class="card" style="padding:20px;border-radius:var(--radius2);position:relative;overflow:hidden">
+                    <div class="shine" aria-hidden="true" style="inset:-120px auto auto -120px"></div>
+                    <div class="split" style="gap:16px">
+                        <div>
+                            <h3 style="margin:0 0 8px;font-size:22px">Ready for a clean you can feel?</h3>
+                            <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                                Let’s align on scope, timeline, and expectations—then execute. That’s the whole playbook.
+                            </p>
+                        </div>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
+                            <a class="btn" href="#services">See services</a>
+                            <a class="btn primary" href="#quote">Get a free quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-grid">
+            <div class="foot">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+                    <div class="logo" aria-hidden="true" style="width:36px;height:36px;border-radius:14px"></div>
+                    <div>
+                        <h5 style="margin:0">4 Kings Cleaning Services LLC</h5>
+                        <p class="tiny">Professional cleaning with a checklist mindset.</p>
+                    </div>
+                </div>
+                <p class="tiny" style="margin-top:10px">© <span id="year"></span> 4 Kings Cleaning Services LLC. All rights reserved.</p>
+            </div>
+
+            <div class="foot">
+                <h5>Contact</h5>
+                <!-- EDIT THESE -->
+                <p><a id="phoneLink" href="tel:+17573009400">📞 (000) 000-0000</a></p>
+                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ 4KingsCleaningservices24@gmail.com</a></p>
+                <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
+            </div>
+
+            <div class="foot">
+                <h5>Service Area</h5>
+                <p>Serving: <span id="serviceArea">Your City • Nearby Areas</span></p>
+                <p class="tiny" style="margin-top:10px">
+                    Licensed/insured info can go here if applicable.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span>✅</span><span id="toastMsg">Copied</span>
+    </div>
+
+    <script>
+    // ====== EDIT THESE BUSINESS DETAILS ======
+        const BUSINESS = {
+            name: "4 Kings Cleaning Services LLC",
+            phoneDisplay: "(757) 300-9400",
+            phoneTel: "+17573009400",
+            email: "4KingsCleaningservices24@gmail.com",
+            serviceArea: "Norfolk, VA • Hampton Roads • 7 Cities",
+            trustLine: "Licensed & Insured"
+,
+// Add your Google "Leave a review" link here (Google Business Profile)
+// Example format often looks like: https://g.page/r/<YOUR_ID>/review
+reviewUrl: "https://www.google.com/search?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA+reviews",
+// Optional: paste your Google Maps "Embed a map" iframe src here (pb=... value)
+googleMapsEmbedUrl: "https://www.google.com/maps?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA&output=embed",
+// Optional: Google Apps Script Web App URL to save bookings to Google Sheets + email you
+bookingEndpoint: ""
+        };
+
+    // ====== UI WIRING ======
+    const yearEl = document.getElementById("year");
+    yearEl.textContent = new Date().getFullYear();
+
+    document.getElementById("serviceArea").textContent = BUSINESS.serviceArea;
+
+    const phoneLink = document.getElementById("phoneLink");
+    phoneLink.textContent = "📞 " + BUSINESS.phoneDisplay;
+    phoneLink.href = "tel:" + BUSINESS.phoneTel;
+
+    const emailLink = document.getElementById("emailLink");
+    emailLink.textContent = "✉️ " + BUSINESS.email;
+    emailLink.href = "mailto:" + BUSINESS.email;
+
+    const callTop = document.getElementById("callTop");
+    callTop.href = "tel:" + BUSINESS.phoneTel;
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.querySelector(".nav");
+    menuBtn\.addEventListener\("click", \(\) => nav\.classList\.toggle\("open"\)\);
+
+    // Zip code checker (Hampton Roads quick coverage)
+    const zipInput = document.getElementById("zipInput");
+    const zipCheckBtn = document.getElementById("zipCheckBtn");
+    const zipResult = document.getElementById("zipResult");
+    const COVERED_PREFIXES = new Set(["233","234","235","236","237"]); // 7 Cities + Peninsula
+    function normalizeZip(z){
+      return String(z || "").trim().replace(/[^0-9]/g,"").slice(0,5);
+    }
+    if (zipCheckBtn && zipInput && zipResult){
+      zipCheckBtn.addEventListener("click", () => {
+        const zip = normalizeZip(zipInput.value);
+        if (zip.length !== 5){
+          zipResult.textContent = "Enter a 5‑digit ZIP."; 
+          return;
+        }
+        const ok = COVERED_PREFIXES.has(zip.slice(0,3));
+        zipResult.textContent = ok
+          ? `✅ ${zip} is in our Hampton Roads coverage area.`
+          : `⚠️ ${zip} is outside our core area, but we may still be able to help. Submit a request.`;
+      });
+    }
+
+    // Toast helper
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    let toastTimer = null;
+    function showToast(msg){
+      toastMsg.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+                // ====== Gallery Lightbox ======
+        const lightbox = document.getElementById("lightbox");
+        if (lightbox) {
+            const lightboxTitle = document.getElementById("lightboxTitle");
+            const lightboxBefore = document.getElementById("lightboxBefore");
+            const lightboxAfter = document.getElementById("lightboxAfter");
+            const lightboxClose = document.getElementById("lightboxClose");
+
+            function openLightbox({ title, before, after }) {
+                if (lightboxTitle) lightboxTitle.textContent = title || "Before & After";
+                if (lightboxBefore) lightboxBefore.src = before || "";
+                if (lightboxAfter) lightboxAfter.src = after || before || "";
+                lightbox.classList.add("show");
+                lightbox.setAttribute("aria-hidden", "false");
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("show");
+                lightbox.setAttribute("aria-hidden", "true");
+                if (lightboxBefore) lightboxBefore.src = "";
+                if (lightboxAfter) lightboxAfter.src = "";
+            }
+
+            document.querySelectorAll(".gallery-card").forEach(card => {
+                const payload = () => ({
+                    title: card.dataset.title,
+                    before: card.dataset.before,
+                    after: card.dataset.after
+                });
+
+                card.addEventListener("click", () => openLightbox(payload()));
+                card.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        openLightbox(payload());
+                    }
+                });
+            });
+
+            if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
+            });
+        }
+
+// "Text Us Info" copies prefilled SMS text (you can also open SMS on mobile)
+    const copyTextBtn = document.getElementById("copyTextBtn");
+    copyTextBtn.addEventListener("click", async () => {
+      const txt = `Hi ${BUSINESS.name}! I’d like a quote. Service: ____  Size: ____  Date: ____  Notes: ____`;
+      try{
+        await navigator.clipboard.writeText(txt);
+        showToast("Text template copied");
+      }catch(e){
+        showToast("Copy not supported here");
+      }
+    });
+
+    // Quote form -> opens user's email client with a prefilled message
+    const form = document.getElementById("quoteForm");
+    const emailAlt = document.getElementById("emailAlt");
+
+    function buildEmailLink(data){
+      const subject = encodeURIComponent(`Quote Request — ${BUSINESS.name}`);
+      const body = encodeURIComponent(
+`Quote Request
+
+Name: ${data.get("name")}
+Phone: ${data.get("phone")}
+Service: ${data.get("service")}
+Frequency: ${data.get("frequency")}
+Size: ${data.get("size")}
+Preferred Date: ${data.get("date") || "N/A"}
+
+Notes:
+${data.get("notes") || "N/A"}
+
+— Sent from the website`
+      );
+      return `mailto:${BUSINESS.email}?subject=${subject}&body=${body}`;
+    }
+
+    emailAlt.addEventListener("click", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      window.location.href = buildEmailLink(data);
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      window.location.href = buildEmailLink(data);
+      showToast("Opening your email app…");
+      form.reset();
+    });
+    </script>
+
+<script>
+(() => {
+  const layer = document.getElementById('bubble-layer');
+  if (!layer) return;
+
+  // Keep it subtle: fewer bubbles on small screens
+  const count = window.matchMedia('(max-width: 720px)').matches ? 16 : 26;
+
+  // Clear any existing (in case of hot reload)
+  layer.innerHTML = '';
+
+  for (let i = 0; i < count; i++) {
+    const b = document.createElement('span');
+    b.className = 'b';
+    const size = 14 + Math.random() * 64;          // px
+    const left = Math.random() * 100;              // %
+    const dur  = 10 + Math.random() * 18;          // s
+    const delay= -Math.random() * dur;             // negative for stagger
+    const drift= (Math.random() * 140) - 70;       // px
+    const op   = 0.10 + Math.random() * 0.20;      // opacity
+    const s    = 0.85 + Math.random() * 0.55;      // scale
+
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = left + '%';
+    b.style.setProperty('--dur', dur + 's');
+    b.style.setProperty('--op', op.toFixed(2));
+    b.style.setProperty('--s', s.toFixed(2));
+    b.style.animationDelay = delay + 's';
+    b.style.marginLeft = drift + 'px';
+
+    layer.appendChild(b);
+  }
+})();
+</script>
+
+<script>
+/* ZIP checker + Google embeds + Book Now (Sheets + Email) */
+(() => {
+  // ---- ZIP checker (Hampton Roads common prefixes) ----
+  const zipPrefixes = new Set(["233","234","235","236","237"]);
+  const zipInput = document.getElementById("zipInput");
+  const zipBtn = document.getElementById("zipCheckBtn");
+  const zipResult = document.getElementById("zipResult");
+
+  function setZipResult(ok, msg){
+    if (!zipResult) return;
+    zipResult.style.display = "inline-flex";
+    zipResult.textContent = msg;
+    zipResult.style.borderColor = ok ? "rgba(46,242,196,.35)" : "rgba(255,255,255,.18)";
+    zipResult.style.background = ok ? "rgba(46,242,196,.14)" : "rgba(255,255,255,.06)";
+  }
+
+  function checkZip(zip){
+    const z = String(zip || "").replace(/\D/g,"").slice(0,5);
+    if (z.length !== 5) return { ok:false, msg:"Enter a valid 5-digit ZIP" };
+    const prefix = z.slice(0,3);
+    if (zipPrefixes.has(prefix)) return { ok:true, msg:`Yes — we serve ${z}` };
+    return { ok:false, msg:`Maybe — submit it and we’ll confirm (${z})` };
+  }
+
+  if (zipBtn && zipInput){
+    zipBtn.addEventListener("click", () => {
+      const r = checkZip(zipInput.value);
+      setZipResult(r.ok, r.msg);
+    });
+    zipInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter"){ e.preventDefault(); zipBtn.click(); }
+    });
+  }
+
+  // ---- Google embed wiring ----
+  const maps = document.getElementById("googleMapsEmbed");
+  const fallback = document.getElementById("googleEmbedFallback");
+  const leaveBtn = document.getElementById("leaveReviewBtn");
+  const leaveBtn2 = document.getElementById("leaveReviewBtn2");
+  const readBtn = document.getElementById("readReviewsBtn");
+
+  // These come from your BUSINESS object:
+  const reviewUrl = (window.BUSINESS && window.BUSINESS.reviewUrl) || (typeof BUSINESS !== "undefined" && BUSINESS.reviewUrl) || "";
+  const mapsUrl = (window.BUSINESS && window.BUSINESS.googleMapsEmbedUrl) || (typeof BUSINESS !== "undefined" && BUSINESS.googleMapsEmbedUrl) || "";
+
+  if (reviewUrl){
+    if (leaveBtn) leaveBtn.href = reviewUrl;
+    if (leaveBtn2) leaveBtn2.href = reviewUrl;
+    if (readBtn) readBtn.href = reviewUrl.replace(/\/review\/?$/,""); // best-effort
+  } else {
+    // If not set, keep buttons non-clickable
+    [leaveBtn, leaveBtn2, readBtn].forEach(b => { if (b){ b.href="#"; b.addEventListener("click",(e)=>e.preventDefault()); } });
+  }
+
+  if (maps && mapsUrl){
+    maps.src = mapsUrl;
+    maps.style.display = "block";
+    if (fallback) fallback.style.display = "none";
+  }
+
+  // ---- Book Now form: post to Apps Script (Sheets) + fallback to mailto ----
+  const form = document.getElementById("bookForm");
+  if (!form) return;
+
+  // Pull endpoint from BUSINESS
+  const endpoint = (window.BUSINESS && window.BUSINESS.bookingEndpoint) || (typeof BUSINESS !== "undefined" && BUSINESS.bookingEndpoint) || "";
+
+  function mailtoFromForm(fd){
+    const subject = encodeURIComponent(`Booking Request — ${BUSINESS.name}`);
+    const body = encodeURIComponent(
+`Booking Request
+
+Name: ${fd.get("name")}
+Phone: ${fd.get("phone")}
+Email: ${fd.get("customer_email") || "N/A"}
+ZIP: ${fd.get("zip")}
+Address/Area: ${fd.get("address") || "N/A"}
+Service: ${fd.get("service")}
+Preferred Date: ${fd.get("date") || "N/A"}
+Preferred Time: ${fd.get("time_window") || "N/A"}
+
+Notes:
+${fd.get("notes") || "N/A"}
+
+— Sent from the website`
+    );
+    return `mailto:${BUSINESS.email}?subject=${subject}&body=${body}`;
+  }
+
+  async function postToEndpoint(payload){
+    // Google Apps Script / simple webhooks often don't support CORS preflight.
+    // Use a "simple" POST (form-encoded) to avoid OPTIONS requests.
+    const body = new URLSearchParams(payload).toString();
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body
+    });
+    return true;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+
+    // basic honeypot
+    if (fd.get("company")) return;
+
+    const zipCheck = checkZip(fd.get("zip"));
+    // we don't block booking if outside; just note it
+    const payload = Object.fromEntries(fd.entries());
+    payload.timestamp = new Date().toISOString();
+    payload.zip_status = zipCheck.msg;
+
+    try{
+      if (endpoint){
+        const ok = await postToEndpoint(payload);
+        if (ok){
+          showToast("Booking sent — we’ll confirm ASAP");
+          form.reset();
+          return;
+        }
+      }
+      // fallback to email
+      window.location.href = mailtoFromForm(fd);
+      showToast("Opening your email app…");
+      form.reset();
+    }catch(err){
+      window.location.href = mailtoFromForm(fd);
+      showToast("Opening your email app…");
+      form.reset();
+    }
+  });
+})();
+</script>
+
+</body>
+<!--
+GOOGLE SHEETS + EMAIL (Apps Script) QUICK SETUP
+1) Create a Google Sheet with headers matching:
+timestamp, name, phone, customer_email, address, zip, service, date, time_window, notes, zip_status
+2) Extensions → Apps Script, paste:
+
+function doPost(e){
+  const data = JSON.parse(e.postData.contents || "{}");
+  const ss = SpreadsheetApp.openById("YOUR_SHEET_ID");
+  const sh = ss.getSheetByName("Bookings") || ss.getSheets()[0];
+  const row = [
+    data.timestamp || new Date().toISOString(),
+    data.name || "",
+    data.phone || "",
+    data.customer_email || "",
+    data.address || "",
+    data.zip || "",
+    data.service || "",
+    data.date || "",
+    data.time_window || "",
+    data.notes || "",
+    data.zip_status || ""
+  ];
+  sh.appendRow(row);
+
+  // Email you
+  const to = "4KingsCleaningservices24@gmail.com";
+  const subject = "New Booking Request — 4 Kings";
+  const body = JSON.stringify(data, null, 2);
+  MailApp.sendEmail(to, subject, body);
+
+  return ContentService.createTextOutput("ok")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
+3) Deploy → New deployment → Web app → Execute as: Me, Who has access: Anyone
+4) Copy the Web App URL, paste into BUSINESS.bookingEndpoint in the code.
+-->
+</html>
