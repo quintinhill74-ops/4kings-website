@@ -821,6 +821,24 @@
   .brand .brandtext span{display:none}
 }
 
+        /* Top banner */
+        .top-banner{
+            width:100%;
+            border-bottom:1px solid var(--line);
+            background:rgba(0,0,0,.15);
+        }
+        .top-banner img{
+            width:100%;
+            height:auto;
+            display:block;
+            max-height:320px;
+            object-fit:cover;
+        }
+        @media (min-width: 900px){
+            .top-banner img{ max-height:420px; }
+        }
+
+    </style>        
 
 /* --- Background image + readable glass + bubbles --- */
 #bg-layer{
@@ -890,7 +908,7 @@ input, select, textarea{
                           "name":"4 Kings Cleaning Services LLC",
                           "description":"Residential and commercial cleaning services including deep clean, move-in/out, standard recurring, and office cleaning.",
                           "areaServed":"Norfolk, VA — Hampton Roads — 7 Cities",
-                          "telephone":"+1-(555) 555-5555",
+                          "telephone":"+1-757-300-9400",
                           "url":"https://yourdomain.com"
                         }
     </script>
@@ -898,13 +916,17 @@ input, select, textarea{
 
 <body>
     
-    <div id="bg-layer" aria-hidden="true"></div>
-    <div id="bg-overlay" aria-hidden="true"></div>
-    <div id="bubble-layer" aria-hidden="true"></div>
-<header class="nav" id="top">
+        <div class="top-banner" aria-label="4 Kings Cleaning Services LLC banner">
+        <picture>
+            <source srcset="4kings_banner_top_1800x500.webp" type="image/webp">
+            <img src="4kings_banner_top_1800x500.png" alt="4 Kings Cleaning Services LLC" loading="eager" decoding="async">
+        </picture>
+    </div>
+
+    <header class="nav" id="top">
         <div class="wrap nav-inner">
             <a class="brand" href="#top" aria-label="4 Kings Cleaning Services LLC Home">
-  <div class="logo" aria-hidden="true"></div>
+  <img class="logo" src="4kings_logo_256.webp" alt="4 Kings Cleaning Services LLC logo" loading="eager" decoding="async" />
   <div class="brandtext">
     <strong>4 Kings Cleaning Services LLC</strong>
     <span>Licensed &amp; Insured • Norfolk, VA • Hampton Roads</span>
@@ -1396,8 +1418,8 @@ input, select, textarea{
             <div class="foot">
                 <h5>Contact</h5>
                 <!-- EDIT THESE -->
-                <p><a id="phoneLink" href="tel:5555555555">📞 (000) 000-0000</a></p>
-                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ quotes@4kingscleaning.com</a></p>
+                <p><a id="phoneLink" href="tel:5555555555">📞 (757) 300-9400</a></p>
+                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ www.4KingsCleaningservices24@gmail.com</a></p>
                 <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
             </div>
 
