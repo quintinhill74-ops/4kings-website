@@ -1012,6 +1012,110 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
   #baGrid{grid-template-columns: 1fr !important;}
 }
 
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.gallery-card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--radius2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.gallery-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(25,211,255,.35);
+  background: rgba(255,255,255,.05);
+}
+.gallery-img{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  display:block;
+  object-fit: cover;
+  background: rgba(255,255,255,.04);
+}
+.gallery-meta{
+  padding: 12px 12px 14px;
+}
+.gallery-meta strong{
+  display:block;
+  font-size: 13px;
+}
+.gallery-meta span{
+  display:block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* Lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.lightbox.show{ display:flex; }
+.lightbox-inner{
+  max-width: 980px;
+  width: 100%;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(11,18,32,.92);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.lightbox-head{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.lightbox-title{
+  font-weight: 800;
+  font-size: 13px;
+}
+.lightbox-close{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.lightbox-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.lightbox-grid figure{ margin:0; }
+.lightbox-grid img{
+  width:100%;
+  height: 360px;
+  object-fit: cover;
+  display:block;
+}
+.lightbox-cap{
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 980px){
+  .gallery{ grid-template-columns: 1fr; }
+  .lightbox-grid{ grid-template-columns: 1fr; }
+  .lightbox-grid img{ height: 280px; }
+}
 </style>
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
@@ -1022,9 +1126,10 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
                           "name":"4 Kings Cleaning Services LLC",
                           "description":"Residential and commercial cleaning services including deep clean, move-in/out, standard recurring, and office cleaning.",
                           "areaServed":"Norfolk, VA; Virginia Beach, VA; Chesapeake, VA; Portsmouth, VA; Suffolk, VA; Hampton, VA; Newport News, VA (Hampton Roads)",
-                          "telephone":"+1 (757) 300-9400",
+                          "telephone":"+1-(555) 555-5555",
+                          
                           "email":"4KingsCleaningservices24@gmail.com",
-                          "url":"https://www.4kingscleaningservices.com"
+"url":"https://www.4kingscleaningservices.com"
                         }
     </script>
 </head>
@@ -1058,6 +1163,7 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
                 <a href="#pricing">Pricing</a>
                 <a href="#process">How It Works</a>
                 <a href="#reviews">Reviews</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#faq">FAQ</a>
                 <a class="btn small" id="bookTop" href="#" target="_blank" rel="noopener">Book Now</a>
                 <a class="btn small" href="#quote">Get a Quote</a>
@@ -1628,7 +1734,28 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
         </section>
     </main>
 
-    <footer>
+    <!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Gallery viewer">
+        <div class="lightbox-head">
+            <div class="lightbox-title" id="lightboxTitle">Before & After</div>
+            <button class="lightbox-close" id="lightboxClose" type="button">Close</button>
+        </div>
+
+        <div class="lightbox-grid">
+            <figure>
+                <img id="lightboxBefore" alt="Before image">
+            </figure>
+            <figure>
+                <img id="lightboxAfter" alt="After image">
+            </figure>
+        </div>
+
+        <div class="lightbox-cap" id="lightboxCap">Tap outside to close.</div>
+    </div>
+</div>
+
+<footer>
         <div class="wrap footer-grid">
             <div class="foot">
                 <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
@@ -1644,8 +1771,8 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
             <div class="foot">
                 <h5>Contact</h5>
                 <!-- EDIT THESE -->
-                <p><a id="phoneLink" href="tel:5555555555">📞 (757) 300-9400</a></p>
-                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ 4KingsCleaningservices24@gmail.com</a></p>
+                <p><a id="phoneLink" href="tel:5555555555">📞 (000) 000-0000</a></p>
+                <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ quotes@4kingscleaning.com</a></p>
                 <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
             </div>
 
@@ -1663,8 +1790,8 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
 <div class="mobile-cta" aria-label="Quick actions">
     <a class="primary" href="#quote">Get Quote</a>
     <a id="bookCta" href="#" target="_blank" rel="noopener">Book</a>
-    <a href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">4KingsCleaningservices24@gmail.com</a>
-    <a id="callCta" href="tel:5555555555">7573009400</a>
+    <a href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">Email</a>
+    <a id="callCta" href="tel:5555555555">Call</a>
 </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
@@ -1675,8 +1802,8 @@ section{content-visibility:auto; contain-intrinsic-size: 800px;}
     // ====== EDIT THESE BUSINESS DETAILS ======
         const BUSINESS = {
             name: "4 Kings Cleaning Services LLC",
-            phoneDisplay: "(757) 300-9400",
-            phoneTel: "+17573009400",
+            phoneDisplay: "(555) 555-5555",
+            phoneTel: "+15555555555",
             email: "4KingsCleaningservices24@gmail.com",
             serviceArea: "Norfolk, VA • Hampton Roads • 7 Cities",
             trustLine: "Licensed & Insured"
