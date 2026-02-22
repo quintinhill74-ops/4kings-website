@@ -1006,7 +1006,7 @@ input, select, textarea{
     }
   ],
   "image": "https://www.4kingscleaningservices.com/4kings_banner_top_1800x500.png",
-  "sameAs": []
+  "sameAs": ["https://www.facebook.com/p/4-Kings-Cleaning-Services-LLC-61557928764156/"]
 }
     </script>
 </head>
@@ -1040,6 +1040,8 @@ input, select, textarea{
                 <a href="#pricing">Pricing</a>
                 <a href="#process">How It Works</a>
                 <a href="#reviews">Reviews</a>
+                <a class="btn small" href="https://www.facebook.com/p/4-Kings-Cleaning-Services-LLC-61557928764156/"
+                   target="_blank" rel="noopener noreferrer">Message Us</a>
                 <a href="#faq">FAQ</a>
                 <a class="btn small" href="#book">Book Now</a>
                 <a class="btn small" href="#quote">Get a Quote</a>
@@ -1857,6 +1859,9 @@ input, select, textarea{
                 <p><a id="phoneLink" href="tel:+17573009400">📞 (757) 300-9400</a></p>
                 <p><a id="emailLink" href="mailto:4KingsCleaningservices24@gmail.com?subject=Quote%20Request%20-%204%20Kings%20Cleaning">✉️ 4KingsCleaningservices24@gmail.com</a></p>
                 <p class="tiny" style="margin-top:10px">Hours: Mon–Fri • 10am–5pm • Sat 11am–5pm • Sundays Closed</p>
+                <p><a href="https://www.facebook.com/p/4-Kings-Cleaning-Services-LLC-61557928764156/"
+                      target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+                 </p>
             </div>
 
             <div class="foot">
@@ -1876,21 +1881,28 @@ input, select, textarea{
     <script>
     // ====== EDIT THESE BUSINESS DETAILS ======
         const BUSINESS = {
-            name: "4 Kings Cleaning Services LLC",
-            phoneDisplay: "(757) 300-9400",
-            phoneTel: "+17573009400",
-            email: "4KingsCleaningservices24@gmail.com",
-            serviceArea: “Serving Norfolk, Virginia Beach, Chesapeake, Portsmouth, Suffolk, Hampton, Newport News…”,
-            trustLine: "Licensed & Insured"
-,
-// Add your Google "Leave a review" link here (Google Business Profile)
-// Example format often looks like: https://g.page/r/<YOUR_ID>/review
-reviewUrl: "https://www.google.com/search?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA+reviews",
-// Optional: paste your Google Maps "Embed a map" iframe src here (pb=... value)
-googleMapsEmbedUrl: "https://www.google.com/maps?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA&output=embed",
-// Optional: Google Apps Script Web App URL to save bookings to Google Sheets + email you
-bookingEndpoint: ""
+          name: "4 Kings Cleaning Services LLC",
+          phoneDisplay: "(757) 300-9400",
+          phoneTel: "+17573009400",
+          email: "4KingsCleaningservices24@gmail.com",
+          serviceArea: "Serving Norfolk, Virginia Beach, Chesapeake, Portsmouth, Suffolk, Hampton, Newport News…",
+          trustLine: "Licensed & Insured",
+
+          // Google review links (replace with your real GBP review link when you have it)
+          reviewUrl: "https://www.google.com/search?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA+reviews",
+
+          // Google Maps embed (better: paste the real “Embed a map” iframe src from Google Maps)
+          googleMapsEmbedUrl: "https://www.google.com/maps?q=4+Kings+Cleaning+Services+LLC+Norfolk+VA&output=embed",
+
+          // Apps Script Web App URL goes here when you connect Sheets
+          bookingEndpoint: "https://www.4kingscleaningservices.com",
+
+          // Facebook
+          facebookUrl: "https://www.facebook.com/p/4-Kings-Cleaning-Services-LLC-61557928764156/"
         };
+
+        // Make it globally accessible for your other scripts:
+        window.BUSINESS = BUSINESS;
 
     // ====== UI WIRING ======
     const yearEl = document.getElementById("year");
@@ -1912,7 +1924,7 @@ bookingEndpoint: ""
     // Mobile menu
     const menuBtn = document.getElementById("menuBtn");
     const nav = document.querySelector(".nav");
-    menuBtn\.addEventListener\("click", \(\) => nav\.classList\.toggle\("open"\)\);
+    menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
 
     // Zip code checker (Hampton Roads quick coverage)
     const zipInput = document.getElementById("zipInput");
@@ -2228,12 +2240,14 @@ GOOGLE SHEETS + EMAIL (Apps Script) QUICK SETUP
 timestamp, name, phone, customer_email, address, zip, service, date, time_window, notes, zip_status
 2) Extensions → Apps Script, paste:
 
-function doPost(e){
-  const data = JSON.parse(e.postData.contents || "{}");
+function doPost(e) {
+  const data = e.parameter || {};
+
   const ss = SpreadsheetApp.openById("YOUR_SHEET_ID");
   const sh = ss.getSheetByName("Bookings") || ss.getSheets()[0];
-  const row = [
-    data.timestamp || new Date().toISOString(),
+
+  sh.appendRow([
+    new Date(),
     data.name || "",
     data.phone || "",
     data.customer_email || "",
@@ -2244,17 +2258,15 @@ function doPost(e){
     data.time_window || "",
     data.notes || "",
     data.zip_status || ""
-  ];
-  sh.appendRow(row);
+  ]);
 
-  // Email you
-  const to = "4KingsCleaningservices24@gmail.com";
-  const subject = "New Booking Request — 4 Kings";
-  const body = JSON.stringify(data, null, 2);
-  MailApp.sendEmail(to, subject, body);
+  MailApp.sendEmail(
+    "4KingsCleaningservices24@gmail.com",
+    "New Booking Request — 4 Kings",
+    JSON.stringify(data, null, 2)
+  );
 
-  return ContentService.createTextOutput("ok")
-    .setMimeType(ContentService.MimeType.TEXT);
+  return ContentService.createTextOutput("ok");
 }
 
 3) Deploy → New deployment → Web app → Execute as: Me, Who has access: Anyone
