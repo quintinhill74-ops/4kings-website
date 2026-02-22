@@ -12,6 +12,10 @@
     <meta property="og:description" content="Reliable residential & commercial cleaning. Fast quotes. Flexible scheduling. Satisfaction focused." />
     <meta property="og:type" content="website" />
 
+    <link rel="canonical" href="https://www.4kingscleaningservices.com/" />
+    <meta property="og:url" content="https://www.4kingscleaningservices.com/" />
+    <meta property="og:image" content="https://www.4kingscleaningservices.com/4kings_banner_top_1800x500.png" />
+
     <style>
         :root{
       --bg:#061b24;
@@ -897,15 +901,113 @@ input, select, textarea{
 
     <!-- Local Business Schema (edit phone/address when you have them) -->
     <script type="application/ld+json">
-                        {
-                          "@context":"https://schema.org",
-                          "@type":"LocalBusiness",
-                          "name":"4 Kings Cleaning Services LLC",
-                          "description":"Residential and commercial cleaning services including deep clean, move-in/out, standard recurring, and office cleaning.",
-                          "areaServed":"Norfolk, VA — Hampton Roads — 7 Cities",
-                          "telephone":"+1-(555) 555-5555",
-                          "url":"https://www.4kingscleaningservices.com"
-                        }
+{
+  "@context": "https://schema.org",
+  "@type": "HouseCleaningService",
+  "name": "4 Kings Cleaning Services LLC",
+  "url": "https://www.4kingscleaningservices.com/",
+  "telephone": "+17573009400",
+  "email": "4KingsCleaningservices24@gmail.com",
+  "description": "Residential and commercial cleaning services in Norfolk, VA and the Hampton Roads area: standard/recurring, deep cleaning, move-in/out, office/commercial, post-construction, and Airbnb turnovers.",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Norfolk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Virginia Beach",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Chesapeake",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Portsmouth",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Suffolk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Hampton",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Newport News",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      }
+    }
+  ],
+  "serviceType": [
+    "Standard / Recurring Cleaning",
+    "Deep Cleaning",
+    "Move-In / Move-Out Cleaning",
+    "Office / Commercial Cleaning",
+    "Post-Construction Cleaning",
+    "Airbnb / Turnover Cleaning"
+  ],
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday"
+      ],
+      "opens": "11:00",
+      "closes": "17:00"
+    }
+  ],
+  "image": "https://www.4kingscleaningservices.com/4kings_banner_top_1800x500.png",
+  "sameAs": []
+}
     </script>
 </head>
 
@@ -939,6 +1041,7 @@ input, select, textarea{
                 <a href="#process">How It Works</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#faq">FAQ</a>
+                <a class="btn small" href="#book">Book Now</a>
                 <a class="btn small" href="#quote">Get a Quote</a>
                 <a class="btn small primary" id="callTop" href="tel:5555555555">Call Now</a>
             </nav>
@@ -1110,14 +1213,114 @@ input, select, textarea{
             </div>
         </section>
 
-        <section id="trust">
+<!-- SERVICE AREA -->
+<section id="service-area">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Service Area</h3>
+                <p>We serve Norfolk and the Hampton Roads region. Check your ZIP in seconds.</p>
+            </div>
+        </div>
+
+        <div class="split">
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">ZIP Code Checker</div>
+                <h4 style="margin:10px 0 6px">Do we serve your area?</h4>
+                <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                    Enter your ZIP and we’ll confirm if you’re in our typical coverage zone (Hampton Roads).
+                </p>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px">
+                    <input id="zipInput" inputmode="numeric" autocomplete="postal-code" placeholder="e.g., 23510" style="max-width:220px" />
+                    <button class="btn primary" id="zipCheckBtn" type="button">Check ZIP</button>
+                    <span class="tag" id="zipResult" style="display:none"></span>
+                </div>
+
+                <div class="hr"></div>
+                <h4 style="margin:0 0 8px">Cities we commonly cover</h4>
+                <ul>
+                    <li>Norfolk</li>
+                    <li>Virginia Beach</li>
+                    <li>Chesapeake</li>
+                    <li>Portsmouth</li>
+                    <li>Suffolk</li>
+                    <li>Hampton</li>
+                    <li>Newport News</li>
+                </ul>
+
+                <p class="fineprint" style="margin-top:12px">
+                    Outside the area? Still reach out — we may be able to schedule depending on the job.
+                </p>
+            </div>
+
+            <div class="card" style="padding:0;border-radius:var(--radius2);overflow:hidden">
+                <div style="padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <div style="font-weight:900">Hampton Roads Map</div>
+                        <div class="tiny">Approximate service area view</div>
+                    </div>
+                    <a class="btn small" href="#book">Book now</a>
+                </div>
+                <iframe
+                    title="Hampton Roads service area map"
+                    style="width:100%;height:360px;border:0;display:block"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-76.704%2C36.735%2C-75.865%2C37.128&amp;layer=mapnik">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION LANDING (SEO) -->
+<section id="locations">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Cleaning Services in Norfolk &amp; Hampton Roads</h3>
+                <p>Local, checklist-based cleaning for homes and businesses across the 7 Cities.</p>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="service">
+                <div class="icon" aria-hidden="true">📍</div>
+                <h4>Norfolk, VA</h4>
+                <p>Deep cleans, move-in/out, recurring, and office cleaning in Norfolk — focused on kitchens, bathrooms, and high-touch details.</p>
+                <div style="margin-top:10px" class="tag">Popular ZIPs: 235xx</div>
+            </div>
+            <div class="service">
+                <div class="icon" aria-hidden="true">🌊</div>
+                <h4>Virginia Beach</h4>
+                <p>Turnovers, recurring maintenance cleans, and move-out cleaning for homes, rentals, and short-term stays.</p>
+                <div style="margin-top:10px" class="tag">Popular ZIPs: 234xx</div>
+            </div>
+            <div class="service">
+                <div class="icon" aria-hidden="true">🏙️</div>
+                <h4>Hampton Roads (7 Cities)</h4>
+                <p>Chesapeake, Portsmouth, Suffolk, Hampton, and Newport News — tell us your scope and we’ll confirm availability.</p>
+                <div style="margin-top:10px" class="tag">Common prefixes: 233–237</div>
+            </div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="#book">Book now</a>
+            <a class="btn" href="#quote">Get a quote</a>
+        </div>
+    </div>
+</section>
+
+<section id="trust">
             <div class="wrap">
                 <div class="section-title">
                     <div>
                         <h3>Trusted, Professional, Consistent</h3>
                         <p>We don’t “wing it.” We run a repeatable process and deliver a clean you can verify.</p>
                     </div>
-                    <a class="btn small" href="#quote">Get a Quote</a>
+                    <a class="btn small" href="#book">Book Now</a>
+                <a class="btn small" href="#quote">Get a Quote</a>
                 </div>
 
                 <div class="grid-3">
@@ -1263,7 +1466,121 @@ input, select, textarea{
         </section>
 
         <!-- REVIEWS -->
-        <section id="reviews">
+        <!-- BOOK NOW -->
+<section id="book">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h3>Book Now</h3>
+                <p>Lock in a time window. We’ll confirm details and send the final price based on scope.</p>
+            </div>
+        </div>
+
+        <div class="split">
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">Booking Request</div>
+                <h4 style="margin:10px 0 6px">Tell us what you need</h4>
+                <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+                    This form can email us and (optionally) save to Google Sheets if you connect the booking endpoint.
+                </p>
+
+                <form id="bookForm" class="form-grid" autocomplete="on" style="margin-top:12px">
+                    <div>
+                        <label for="b_name">Full Name</label>
+                        <input id="b_name" name="name" placeholder="Your name" required />
+                    </div>
+                    <div>
+                        <label for="b_phone">Phone</label>
+                        <input id="b_phone" name="phone" placeholder="(757) 300-9400" required />
+                    </div>
+
+                    <div class="full">
+                        <label for="b_email">Email (optional)</label>
+                        <input id="b_email" name="customer_email" type="email" placeholder="you@example.com" />
+                    </div>
+
+                    <div class="full">
+                        <label for="b_address">Service Address (or neighborhood)</label>
+                        <input id="b_address" name="address" placeholder="Street (optional), City, VA" />
+                    </div>
+
+                    <div>
+                        <label for="b_zip">ZIP</label>
+                        <input id="b_zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="23510" required />
+                    </div>
+                    <div>
+                        <label for="b_service">Service</label>
+                        <select id="b_service" name="service" required>
+                            <option value="" selected disabled>Select a service</option>
+                            <option>Standard / Recurring Cleaning</option>
+                            <option>Deep Cleaning</option>
+                            <option>Move-In / Move-Out</option>
+                            <option>Office / Commercial</option>
+                            <option>Post-Construction</option>
+                            <option>Airbnb / Turnover</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="b_date">Preferred Date</label>
+                        <input id="b_date" name="date" type="date" />
+                    </div>
+                    <div>
+                        <label for="b_time">Preferred Time</label>
+                        <select id="b_time" name="time_window">
+                            <option>Morning (9am–12pm)</option>
+                            <option>Midday (12pm–3pm)</option>
+                            <option>Afternoon (3pm–6pm)</option>
+                            <option>Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="full">
+                        <label for="b_notes">Notes</label>
+                        <textarea id="b_notes" name="notes" placeholder="Beds/baths, pets, heavy buildup, access notes, add-ons…"></textarea>
+                    </div>
+
+                    <!-- spam honeypot -->
+                    <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:1px;width:1px" aria-hidden="true" />
+
+                    <div class="full" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                        <button class="btn primary" type="submit">Submit Booking Request</button>
+                        <a class="btn" href="#quote">Prefer a quote first?</a>
+                        <span class="fineprint">By sending, you agree we can contact you about your request.</span>
+                    </div>
+
+                    <p class="fineprint" style="margin-top:10px">
+                        <strong>Google Sheets save:</strong> paste your Apps Script Web App URL into <code>bookingEndpoint</code> in the code.
+                    </p>
+                </form>
+            </div>
+
+            <div class="card" style="padding:18px;border-radius:var(--radius2)">
+                <div class="tag">What happens next</div>
+                <h4 style="margin:10px 0 6px">Fast confirmation</h4>
+                <ul>
+                    <li>We confirm scope (beds/baths, condition, add-ons)</li>
+                    <li>We confirm arrival window and access instructions</li>
+                    <li>We send final price and lock the slot</li>
+                </ul>
+
+                <div class="hr"></div>
+
+                <div class="tag">Pro tip</div>
+                <p style="margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.6">
+                    First-time customers usually get the best results starting with a <strong>Deep Clean</strong> — then switch to recurring.
+                </p>
+
+                <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+                    <a class="btn primary" href="#services">See services</a>
+                    <a class="btn" id="leaveReviewBtn2" href="#" target="_blank" rel="noopener">Leave a review</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
             <div class="wrap">
                 <div class="section-title">
                     <div>
@@ -1306,6 +1623,57 @@ input, select, textarea{
                         </div>
                     </div>
                 </div>
+            <div class="split" style="margin-top:14px">
+    <div class="card" style="padding:18px;border-radius:var(--radius2);overflow:hidden">
+        <div class="tag">Google Reviews</div>
+        <h4 style="margin:10px 0 6px">See us on Google</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            Add your Google Reviews link + Maps embed to show live reviews here.
+        </p>
+
+        <div class="hr"></div>
+
+        <iframe
+            id="googleMapsEmbed"
+            title="4 Kings Cleaning Services on Google Maps"
+            style="width:100%;height:320px;border:0;display:none;border-radius:16px;overflow:hidden"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="">
+        </iframe>
+
+        <div id="googleEmbedFallback" class="fineprint" style="margin-top:10px">
+            To enable this embed: open Google Maps → search your business → Share → Embed a map → copy the iframe src,
+            then paste it into <code>googleMapsEmbedUrl</code> in the code.
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" id="leaveReviewBtn" href="#" target="_blank" rel="noopener">Leave a Review</a>
+            <a class="btn" id="readReviewsBtn" href="#" target="_blank" rel="noopener">Read Reviews</a>
+        </div>
+    </div>
+
+    <div class="card" style="padding:18px;border-radius:var(--radius2)">
+        <div class="tag">Trust builder</div>
+        <h4 style="margin:10px 0 6px">Want reviews like this?</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            After every clean, we can text or email a quick review link. Consistent follow-up = consistent 5-stars.
+        </p>
+
+        <div class="hr"></div>
+
+        <h4 style="margin:0 0 8px">Simple review ask script</h4>
+        <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+            “Hey! Appreciate you choosing 4 Kings. If you loved the clean, could you drop a quick Google review?
+            It helps us a ton.”
+        </p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#book">Book Now</a>
+            <a class="btn primary" href="#quote">Get a Quote</a>
+        </div>
+    </div>
+</div>
             </div>
         </section>
 
@@ -1514,6 +1882,14 @@ input, select, textarea{
             email: "4KingsCleaningservices24@gmail.com",
             serviceArea: "Norfolk, VA • Hampton Roads • 7 Cities",
             trustLine: "Licensed & Insured"
+,
+// Add your Google "Leave a review" link here (Google Business Profile)
+// Example format often looks like: https://g.page/r/<YOUR_ID>/review
+reviewUrl: "",
+// Optional: paste your Google Maps "Embed a map" iframe src here (pb=... value)
+googleMapsEmbedUrl: "",
+// Optional: Google Apps Script Web App URL to save bookings to Google Sheets + email you
+bookingEndpoint: ""
         };
 
     // ====== UI WIRING ======
@@ -1685,5 +2061,177 @@ ${data.get("notes") || "N/A"}
 })();
 </script>
 
+<script>
+/* ZIP checker + Google embeds + Book Now (Sheets + Email) */
+(() => {
+  // ---- ZIP checker (Hampton Roads common prefixes) ----
+  const zipPrefixes = new Set(["233","234","235","236","237"]);
+  const zipInput = document.getElementById("zipInput");
+  const zipBtn = document.getElementById("zipCheckBtn");
+  const zipResult = document.getElementById("zipResult");
+
+  function setZipResult(ok, msg){
+    if (!zipResult) return;
+    zipResult.style.display = "inline-flex";
+    zipResult.textContent = msg;
+    zipResult.style.borderColor = ok ? "rgba(46,242,196,.35)" : "rgba(255,255,255,.18)";
+    zipResult.style.background = ok ? "rgba(46,242,196,.14)" : "rgba(255,255,255,.06)";
+  }
+
+  function checkZip(zip){
+    const z = String(zip || "").replace(/\D/g,"").slice(0,5);
+    if (z.length !== 5) return { ok:false, msg:"Enter a valid 5-digit ZIP" };
+    const prefix = z.slice(0,3);
+    if (zipPrefixes.has(prefix)) return { ok:true, msg:`Yes — we serve ${z}` };
+    return { ok:false, msg:`Maybe — submit it and we’ll confirm (${z})` };
+  }
+
+  if (zipBtn && zipInput){
+    zipBtn.addEventListener("click", () => {
+      const r = checkZip(zipInput.value);
+      setZipResult(r.ok, r.msg);
+    });
+    zipInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter"){ e.preventDefault(); zipBtn.click(); }
+    });
+  }
+
+  // ---- Google embed wiring ----
+  const maps = document.getElementById("googleMapsEmbed");
+  const fallback = document.getElementById("googleEmbedFallback");
+  const leaveBtn = document.getElementById("leaveReviewBtn");
+  const leaveBtn2 = document.getElementById("leaveReviewBtn2");
+  const readBtn = document.getElementById("readReviewsBtn");
+
+  // These come from your BUSINESS object:
+  const reviewUrl = (window.BUSINESS && window.BUSINESS.reviewUrl) || (typeof BUSINESS !== "undefined" && BUSINESS.reviewUrl) || "";
+  const mapsUrl = (window.BUSINESS && window.BUSINESS.googleMapsEmbedUrl) || (typeof BUSINESS !== "undefined" && BUSINESS.googleMapsEmbedUrl) || "";
+
+  if (reviewUrl){
+    if (leaveBtn) leaveBtn.href = reviewUrl;
+    if (leaveBtn2) leaveBtn2.href = reviewUrl;
+    if (readBtn) readBtn.href = reviewUrl.replace(/\/review\/?$/,""); // best-effort
+  } else {
+    // If not set, keep buttons non-clickable
+    [leaveBtn, leaveBtn2, readBtn].forEach(b => { if (b){ b.href="#"; b.addEventListener("click",(e)=>e.preventDefault()); } });
+  }
+
+  if (maps && mapsUrl){
+    maps.src = mapsUrl;
+    maps.style.display = "block";
+    if (fallback) fallback.style.display = "none";
+  }
+
+  // ---- Book Now form: post to Apps Script (Sheets) + fallback to mailto ----
+  const form = document.getElementById("bookForm");
+  if (!form) return;
+
+  // Pull endpoint from BUSINESS
+  const endpoint = (window.BUSINESS && window.BUSINESS.bookingEndpoint) || (typeof BUSINESS !== "undefined" && BUSINESS.bookingEndpoint) || "";
+
+  function mailtoFromForm(fd){
+    const subject = encodeURIComponent(`Booking Request — ${BUSINESS.name}`);
+    const body = encodeURIComponent(
+`Booking Request
+
+Name: ${fd.get("name")}
+Phone: ${fd.get("phone")}
+Email: ${fd.get("customer_email") || "N/A"}
+ZIP: ${fd.get("zip")}
+Address/Area: ${fd.get("address") || "N/A"}
+Service: ${fd.get("service")}
+Preferred Date: ${fd.get("date") || "N/A"}
+Preferred Time: ${fd.get("time_window") || "N/A"}
+
+Notes:
+${fd.get("notes") || "N/A"}
+
+— Sent from the website`
+    );
+    return `mailto:${BUSINESS.email}?subject=${subject}&body=${body}`;
+  }
+
+  async function postToEndpoint(payload){
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    return res.ok;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+
+    // basic honeypot
+    if (fd.get("company")) return;
+
+    const zipCheck = checkZip(fd.get("zip"));
+    // we don't block booking if outside; just note it
+    const payload = Object.fromEntries(fd.entries());
+    payload.timestamp = new Date().toISOString();
+    payload.zip_status = zipCheck.msg;
+
+    try{
+      if (endpoint){
+        const ok = await postToEndpoint(payload);
+        if (ok){
+          showToast("Booking sent — we’ll confirm ASAP");
+          form.reset();
+          return;
+        }
+      }
+      // fallback to email
+      window.location.href = mailtoFromForm(fd);
+      showToast("Opening your email app…");
+      form.reset();
+    }catch(err){
+      window.location.href = mailtoFromForm(fd);
+      showToast("Opening your email app…");
+      form.reset();
+    }
+  });
+})();
+</script>
+
 </body>
+<!--
+GOOGLE SHEETS + EMAIL (Apps Script) QUICK SETUP
+1) Create a Google Sheet with headers matching:
+timestamp, name, phone, customer_email, address, zip, service, date, time_window, notes, zip_status
+2) Extensions → Apps Script, paste:
+
+function doPost(e){
+  const data = JSON.parse(e.postData.contents || "{}");
+  const ss = SpreadsheetApp.openById("YOUR_SHEET_ID");
+  const sh = ss.getSheetByName("Bookings") || ss.getSheets()[0];
+  const row = [
+    data.timestamp || new Date().toISOString(),
+    data.name || "",
+    data.phone || "",
+    data.customer_email || "",
+    data.address || "",
+    data.zip || "",
+    data.service || "",
+    data.date || "",
+    data.time_window || "",
+    data.notes || "",
+    data.zip_status || ""
+  ];
+  sh.appendRow(row);
+
+  // Email you
+  const to = "4KingsCleaningservices24@gmail.com";
+  const subject = "New Booking Request — 4 Kings";
+  const body = JSON.stringify(data, null, 2);
+  MailApp.sendEmail(to, subject, body);
+
+  return ContentService.createTextOutput("ok")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
+3) Deploy → New deployment → Web app → Execute as: Me, Who has access: Anyone
+4) Copy the Web App URL, paste into BUSINESS.bookingEndpoint in the code.
+-->
 </html>
