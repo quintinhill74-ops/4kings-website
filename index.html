@@ -1889,6 +1889,8 @@ input, select, textarea{
     </div>
 
     <script>
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdalrlwd";
+
     // ====== EDIT THESE BUSINESS DETAILS ======
         const BUSINESS = {
           name: "4 Kings Cleaning Services LLC",
@@ -2030,43 +2032,58 @@ input, select, textarea{
       }
     });
 
-    // Quote form -> opens user's email client with a prefilled message
-    const form = document.getElementById("quoteForm");
+    // Quote form -> sends to Formspree (no email-app popups)
+    const quoteForm = document.getElementById("quoteForm");
     const emailAlt = document.getElementById("emailAlt");
 
-    function buildEmailLink(data){
-      const subject = encodeURIComponent(`Quote Request — ${BUSINESS.name}`);
-      const body = encodeURIComponent(
-`Quote Request
+    async function submitToFormspree(formEl, formName){
+      const fd = new FormData(formEl);
+      if (formName) fd.append("form_name", formName);
+      fd.append("page_url", window.location.href);
 
-Name: ${data.get("name")}
-Phone: ${data.get("phone")}
-Service: ${data.get("service")}
-Frequency: ${data.get("frequency")}
-Size: ${data.get("size")}
-Preferred Date: ${data.get("date") || "N/A"}
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: fd,
+        headers: { "Accept": "application/json" }
+      });
 
-Notes:
-${data.get("notes") || "N/A"}
-
-— Sent from the website`
-      );
-      return `mailto:${BUSINESS.email}?subject=${subject}&body=${body}`;
+      if (!res.ok) {
+        let msg = "Form submission failed.";
+        try {
+          const data = await res.json();
+          if (data && data.errors && data.errors[0] && data.errors[0].message) msg = data.errors[0].message;
+        } catch(_) {}
+        throw new Error(msg);
+      }
+      return true;
     }
 
-    emailAlt.addEventListener("click", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      window.location.href = buildEmailLink(data);
-    });
+    // Keep the Email Instead button as a manual fallback
+    if (emailAlt){
+      const subject = encodeURIComponent(`Quote Request — ${BUSINESS.name}`);
+      emailAlt.href = `mailto:${BUSINESS.email}?subject=${subject}`;
+    }
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      window.location.href = buildEmailLink(data);
-      showToast("Opening your email app…");
-      form.reset();
-    });
+    if (quoteForm){
+      quoteForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        try{
+          await submitToFormspree(quoteForm, "Website Quote Request");
+          showToast("✅ Quote request sent");
+          quoteForm.reset();
+        }catch(err){
+          showToast("⚠️ Couldn’t send — use Email Instead");
+          console.error(err);
+        }finally{
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      });
+    }
+
     </script>
 
 <script>
@@ -2171,7 +2188,7 @@ ${data.get("notes") || "N/A"}
   if (!form) return;
 
   // Pull endpoint from BUSINESS
-  const endpoint = (window.BUSINESS && window.BUSINESS.bookingEndpoint) || (typeof BUSINESS !== "undefined" && BUSINESS.bookingEndpoint) || "";
+  const endpoint = (typeof FORMSPREE_ENDPOINT !== "undefined" && FORMSPREE_ENDPOINT) || (window.BUSINESS && window.BUSINESS.bookingEndpoint) || (typeof BUSINESS !== "undefined" && BUSINESS.bookingEndpoint) || "";
 
   function mailtoFromForm(fd){
     const subject = encodeURIComponent(`Booking Request — ${BUSINESS.name}`);
@@ -2196,15 +2213,19 @@ ${fd.get("notes") || "N/A"}
   }
 
   async function postToEndpoint(payload){
-    // Google Apps Script / simple webhooks often don't support CORS preflight.
-    // Use a "simple" POST (form-encoded) to avoid OPTIONS requests.
-    const body = new URLSearchParams(payload).toString();
-    await fetch(endpoint, {
+    // Formspree supports cross-origin POSTs with FormData + Accept: application/json
+    const fd = new FormData();
+    Object.keys(payload || {}).forEach(k => fd.append(k, payload[k]));
+    fd.append("form_name", "Website Booking Request");
+    fd.append("page_url", window.location.href);
+
+    const res = await fetch(endpoint, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-      body
+      body: fd,
+      headers: { "Accept": "application/json" }
     });
+
+    if (!res.ok) throw new Error("Booking submission failed.");
     return true;
   }
 
